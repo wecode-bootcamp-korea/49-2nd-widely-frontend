@@ -2,16 +2,26 @@ import React from 'react';
 import './Button.scss';
 
 const Button = (props) => {
-  const { type, value, name, size, scale, onclick, classname = '' } = props;
+  const {
+    type,
+    value,
+    name,
+    size,
+    shape,
+    disabled,
+    onclick,
+    className = 'btn',
+  } = props;
   return (
     <button
       type={type}
       value={value}
       name={name}
       size={size}
-      scale={scale}
+      shape={shape}
+      disabled={disabled}
       onclick={onclick}
-      classname={classname}
+      className={className}
     />
   );
 };
