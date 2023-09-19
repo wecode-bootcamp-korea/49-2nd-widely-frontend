@@ -25,4 +25,5 @@ component/productbox
 [design] 제목   // CSS 등 사용자 UI 디자인 변경
 [refact] 제목   // 코드 리팩토링
 [style] 제목    // 코드 포맷 변경, 세미콜론 누락 등 코드 수정이 없는 경우
+[etc] 제목      // 기능 및 UI 변경 외의 사항
 ```

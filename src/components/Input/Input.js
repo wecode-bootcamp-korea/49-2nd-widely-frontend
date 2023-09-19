@@ -1,13 +1,18 @@
-import React from "react";
-import Input from "./Input.scss";
+import React from 'react';
+import './Input.scss';
 
-const Input = () => {
+const Input = (props) => {
+  const { className = 'input', placeholder, type, disabled, name } = props;
 
-  return(
-    <div>
-      <input>yeah!</input>
-    </div>
-  )
-}
+  return (
+    <input
+      className={className}
+      placeholder={placeholder}
+      type={type}
+      disabled={disabled}
+      name={name}
+    />
+  );
+};
 
 export default Input;
