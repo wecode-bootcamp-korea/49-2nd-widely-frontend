@@ -1,0 +1,137 @@
+// #wrapper {
+//   height: auto;
+// min-height: 100%;
+//  padding-bottom: (footer높이);
+//}
+//footer {
+//  height: (footer높이);
+//  position: relative;
+//  transform: translateY(-100%);
+//}
+
+.header {
+  width: 100%;
+  height: 500px;
+  background-color: skyblue;
+}
+.main {
+  width: 100%;
+  height: 800px;
+  background-color: burlywood;
+}
+.footer-main {
+  width: 100%;
+  height: auto;
+  background-color: #1c1c1c;
+  color: #999999;
+  font-size: 14px;
+  flex-direction: column;
+
+  .footer-contents {
+    width: 80%;
+    margin: 0 auto;
+    padding: 80px 0 100px;
+
+    .footer-area1 {
+      display: flex;
+      gap: 70px;
+      align-items: center;
+      font-size: 16px;
+
+      li {
+        gap: 70px;
+      }
+    }
+
+    hr {
+      background-color: #999999;
+      margin: 24px 0;
+      width: 100%;
+      height: 1px;
+      border: 0;
+    }
+
+    .footer-area2 {
+      display: flex;
+      justify-content: space-between;
+
+      .footer-area2-left {
+        line-height: 120%;
+
+        p:first-child {
+          font-size: 15px;
+          margin-bottom: 1rem;
+        }
+      }
+
+      .footer-area2-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        .footer-kakao {
+          margin-bottom: 12px;
+          .kakao-img {
+            width: 45px;
+            height: 45px;
+            margin: 0 0 10px;
+          }
+          p:last-child {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 140%;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+          }
+        }
+        .footer-cs {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: flex-start;
+
+          .footer-cs-num {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 140%;
+            letter-spacing: -0.02em;
+            color: #999999;
+            margin-right: 20px;
+          }
+          .footer-cs-hours {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 140%;
+            letter-spacing: -0.02em;
+            color: #999999;
+          }
+        }
+      }
+    }
+    .footer-area3 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 36px 0 0;
+
+      .footer-area3-left {
+        display: flex;
+        align-items: center;
+
+        li:not(:first-of-type) {
+          padding: 0 18px 0;
+          border-left: 1px solid #999999;
+        }
+
+        li:first-child {
+          padding-right: 18px;
+        }
+        li:last-child {
+          padding-right: none;
+          border-right: none;
+        }
+      }
+    }
+  }
+}
