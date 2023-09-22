@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Dropdown from './component/Dropdown';
 import './Nav.scss';
-import { useNavigate, Link } from 'react-router-dom';
 
 const Nav = () => {
-  const navifate = useNavigate();
+  const [listBtn, setListBtn] = useState(false);
+
   return (
     <nav className="nav">
       <p className="event">
@@ -28,9 +30,16 @@ const Nav = () => {
       </header>
       <div className="viewList">
         <div className="inner-wrap">
-          <div className="kateGoRie">
-            <i className="fa-solid fa-bars" />
-            <span>카테고리</span>
+          <div
+            className="category"
+            onMouseOver={() => setListBtn(true)}
+            onMouseOut={() => setListBtn(false)}
+          >
+            <div className="categoryList">
+              <i className="fa-solid fa-bars" />
+              <button>카테고리</button>
+              {listBtn ? <Dropdown /> : null}
+            </div>
           </div>
           <div className="tabWrapper">
             <span>홈</span>

@@ -2,8 +2,9 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
-import List from './pages/List/List';
 import Nav from './components/Nav/Nav';
+import Product from './pages/Product/Product';
+import Explanation from './pages/Explanation/Explanation';
 
 const Router = () => {
   return (
@@ -12,7 +13,8 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/main" element={<Main />} />
-        <Route path="/list" element={<List />} />
+        <Route path="/product/:productId" element={<Product />} />
+        <Route path="/explanation" element={<Explanation />} />
       </Routes>
     </BrowserRouter>
   );
