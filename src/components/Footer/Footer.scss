@@ -1,34 +1,20 @@
-// #wrapper {
-//   height: auto;
-// min-height: 100%;
-//  padding-bottom: (footer높이);
-//}
-//footer {
-//  height: (footer높이);
-//  position: relative;
-//  transform: translateY(-100%);
-//}
-
-.header {
-  width: 100%;
-  height: 500px;
-  background-color: skyblue;
-}
-.main {
-  width: 100%;
-  height: 800px;
-  background-color: burlywood;
-}
 .footer-main {
   width: 100%;
-  height: auto;
-  background-color: #1c1c1c;
-  color: #999999;
   font-size: 14px;
   flex-direction: column;
+  background-color: #1c1c1c;
+  color: #999999;
 
+  margin: 20px 0 0;
+  height: auto;
+  position: relative;
+  // transform: translateY(-100%);
+}
+
+.footer-main {
   .footer-contents {
-    width: 80%;
+    width: 100%;
+    max-width: 1050px;
     margin: 0 auto;
     padding: 80px 0 100px;
 
