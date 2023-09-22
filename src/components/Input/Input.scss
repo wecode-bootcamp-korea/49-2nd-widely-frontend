@@ -1,34 +1,35 @@
+@import '../../styles/variables.scss';
+
 .input {
   display: flex;
-  border: 1px solid #dddddd;
+  border: 1px solid var(--input--gray);
   width: 100%;
   height: 40px;
   padding: 2px 4px 2px 15px;
   outline: 1px;
+  color: var(--input--gray);
 
   &::placeholder {
-    color: #999;
     font-size: 16px;
     line-height: 120%;
   }
 
   &:focus {
-    border: 1px solid #000000;
-    color: #000;
+    border: 1px solid var(--black);
+    color: var(--black);
 
     &::placeholder {
-      color: #999;
       font-size: 16px;
       line-height: 120%;
     }
   }
 
   &:disabled {
-    background-color: #fafafa;
-    border-color: #e0e0e0;
+    background-color: var(--white);
+    border-color: var(--input--gray);
 
     &::placeholder {
-      color: #ccc;
+      color: var(--input--gray);
     }
   }
 }
