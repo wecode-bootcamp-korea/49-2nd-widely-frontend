@@ -9,7 +9,7 @@ const Button = (props) => {
     size,
     shape,
     disabled,
-    onclick,
+    onClick,
     className = 'btn',
   } = props;
   return (
@@ -20,7 +20,7 @@ const Button = (props) => {
       size={size}
       shape={shape}
       disabled={disabled}
-      onclick={onclick}
+      onClick={onClick}
       className={className}
     />
   );
