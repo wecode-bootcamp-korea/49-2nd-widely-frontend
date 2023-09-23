@@ -1,7 +1,8 @@
 import React from 'react';
 import './Basket.scss';
+import '../../components/Button/Button.scss';
 
-const Basket = () => {
+const Basket = (props) => {
   return (
     <div className="cartMain">
       <div className="topContainer">
