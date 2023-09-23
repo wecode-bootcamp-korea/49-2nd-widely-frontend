@@ -1,6 +1,5 @@
 import React from 'react';
 import './Basket.scss';
-import '../../components/Button/Button.scss';
 
 const Basket = (props) => {
   return (
