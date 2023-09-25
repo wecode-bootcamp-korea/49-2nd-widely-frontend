@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Explanation.scss';
+import Count from '../../components/Count/Count';
+import Delivery from '../../components/Delivery/Delivery';
+
 const Explanation = () => {
+  const [count, setCount] = useState(1);
+  const [price, setPrice] = useState(5000);
+
   return (
     <div className="explanation">
       <div className="container">
@@ -21,33 +27,14 @@ const Explanation = () => {
           </p>
           <span className="price">5.000원</span>
 
-          <div className="countBoxAll">
-            <p>와이즐리 5중날 면도날 리필 4P</p>
-            <div>
-              <div className="countBox">
-                <span>5.000원</span>
-                <button>+</button>
-                <span>0</span>
-                <button>-</button>
-              </div>
-            </div>
-          </div>
+          <Count
+            count={count}
+            setCount={setCount}
+            price={price}
+            setPrice={setPrice}
+          />
 
-          <div className="totalPriceBox">
-            <span>총 금액</span>
-            <span className="totalPrice">10.000원</span>
-          </div>
-
-          <div className="deliveryBox">
-            <div className="a">4만원 이상 구매 시 무료배송</div>
-            <div className="deliveryPrice">
-              <div className="d">배송비</div>
-              <div className="deliverySmallBox">
-                <span className="b">무료배송까지남은금액</span>
-                <span className="c">9월 한정 혜택입니다</span>
-              </div>
-            </div>
-          </div>
+          <Delivery />
 
           <div>
             <button className="basket">장바구니</button>
