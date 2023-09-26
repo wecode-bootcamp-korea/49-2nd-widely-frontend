@@ -5,8 +5,8 @@
 
 ### Team
 
-> Product Manager: 김기영(F)
-> Project Manager: 차승혁(B)
+> Product Manager: 김기영(F)<br />
+> Project Manager: 차승혁(B)<br />
 > Teammates: 박민재(F), 이청원(F) / 정현우(B), 이준호(B), 고은채(B)
 
 ### Branch & PR & Commit
