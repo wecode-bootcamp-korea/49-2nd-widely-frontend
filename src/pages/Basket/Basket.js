@@ -1,7 +1,8 @@
 import React from 'react';
 import './Basket.scss';
+import Button from '../../components/Button/Button';
 
-const Basket = (props) => {
+const Basket = () => {
   return (
     <div className="cartMain">
       <div className="topContainer">
@@ -23,6 +24,7 @@ const Basket = (props) => {
                 </div>
                 <div className="infoWrap">
                   <p className="messageWed">장바구니에 담긴 제품이 없습니다</p>
+                  <Button className="btn" size="smallB" />
                   <div className="orderInfo">
                     <div className="bsTotalBox">
                       <div className="bsTotalPrice">
