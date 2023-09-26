@@ -2,11 +2,12 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Dropdown.scss';
 
-const Dropdown = () => {
+const Dropdown = ({ setListBtn }) => {
   const navigate = useNavigate();
 
   const handleClick = (name) => {
     navigate(`/product/${name}`);
+    setListBtn(false);
   };
   return (
     <div className="selectMenu">
