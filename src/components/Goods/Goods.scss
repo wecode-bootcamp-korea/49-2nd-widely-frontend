@@ -13,6 +13,10 @@
       aspect-ratio: 1/1;
       border-radius: 30px;
       width: 100%;
+      &:hover {
+        opacity: 0.5;
+        cursor: pointer;
+      }
     }
     .price {
       font-size: 18px;
@@ -21,6 +25,13 @@
     .Description {
       font-size: 15px;
       color: #999999;
+    }
+    .title {
+      &:hover {
+        color: black;
+        opacity: 0.5;
+        cursor: pointer;
+      }
     }
   }
 }
