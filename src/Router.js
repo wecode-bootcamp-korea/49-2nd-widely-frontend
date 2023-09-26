@@ -5,6 +5,8 @@ import Main from './pages/Main/Main';
 import Nav from './components/Nav/Nav';
 import Product from './pages/Product/Product';
 import Details from './pages/Details/Details';
+import Footer from './components/Footer/Footer';
+import Basket from './pages/Basket/Basket';
 
 const Router = () => {
   return (
@@ -15,7 +17,9 @@ const Router = () => {
         <Route path="/main" element={<Main />} />
         <Route path="/product/:category" element={<Product />} />
         <Route path="/details/:productId" element={<Details />} />
+        <Route path="/basket" element={<Basket />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
