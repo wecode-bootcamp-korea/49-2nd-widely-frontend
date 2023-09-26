@@ -1,0 +1,54 @@
+{
+  "category": "신제품",
+  "total": 6,
+  "list": [
+    {
+      "id": 1,
+      "category": "영양제",
+      "img": "https://img.freepik.com/free-photo/traditional-chinese-medicine-astragalus-membranaceus_1387-251.jpg?t=st=1695298831~exp=1695299431~hmac=58953f7c8273312d386694ec3dfcc3563d464e3d87ccd3f4c6434186e00c7de4",
+      "price": "10.000원",
+      "title": "발효침향환 60환",
+      "Description": "[2개월분] 장 건강과 배변활동 원활에 도움을 줄 수 있는 100억 CFU 보장 유산균"
+    },
+    {
+      "id": 2,
+      "category": "세럼",
+      "img": "https://img.freepik.com/premium-psd/skin-care-moisturizing-cosmetic-premium-products_99236-252.jpg",
+      "price": "5.000원",
+      "title": "세럼",
+      "Description": "피부 수분 충전 세럼"
+    },
+    {
+      "id": 3,
+      "category": "클렌징폼",
+      "img": "https://img.freepik.com/free-psd/cosmetic-mockup_15879-622.jpg?w=1480&t=st=1695297909~exp=1695298509~hmac=f5bde9b3d83a8be8a8a9fb90ec442f04411bc7e2412a2c6d7e2db49289a056da",
+      "price": "7.000원",
+      "title": "클렌징 폼",
+      "Description": "깨끗한 얼굴 클렌징폼"
+    },
+    {
+      "id": 4,
+      "category": "식빵",
+      "img": "https://media.istockphoto.com/id/185235465/ko/%EC%82%AC%EC%A7%84/white-%ED%86%A0%EC%8A%A4%ED%8A%B8.jpg?s=1024x1024&w=is&k=20&c=FyEYH6xFDyy4eYmV175rGv1GBJEeiLg8jxK8GjMGRnA=",
+      "price": "7.000원",
+      "title": "정말 부드러운 식빵",
+      "Description": "각종 잼의 발라먹기 좋은 식빵"
+    },
+    {
+      "id": 5,
+      "category": "스킨",
+      "img": "https://img.freepik.com/premium-psd/3d-render-dropper-bottle-rock-podium-with-tropical-leaf-product-display_252008-1419.jpg?size=626&ext=jpg&ga=GA1.2.1374898282.1695297833&semt=ais",
+      "price": "22.000원",
+      "title": "스킨올인원",
+      "Description": "올인원 스킨"
+    },
+    {
+      "id": 6,
+      "category": "가글",
+      "img": "https://img.freepik.com/premium-vector/mouthwash-ad-template_317396-1504.jpg",
+      "price": "7.000원",
+      "title": "정말 편한 가그린",
+      "Description": "휴대용 가그린! "
+    }
+  ]
+}

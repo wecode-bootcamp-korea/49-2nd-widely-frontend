@@ -1,0 +1,26 @@
+.goods {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 16px;
+  row-gap: 80px;
+  .goodsProduct {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .imgSize {
+      object-fit: cover;
+      aspect-ratio: 1/1;
+      border-radius: 30px;
+      width: 100%;
+    }
+    .price {
+      font-size: 18px;
+      font-weight: 800;
+    }
+    .Description {
+      font-size: 15px;
+      color: #999999;
+    }
+  }
+}

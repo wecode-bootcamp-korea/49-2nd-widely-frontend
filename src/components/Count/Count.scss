@@ -1,0 +1,32 @@
+.countAll {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: baseline;
+  margin: 30px;
+
+  .countBox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #999999;
+    border-radius: 10px;
+    padding: 0px 5px;
+
+    button {
+      border: none;
+      padding: 0px 10px;
+      font-size: 20px;
+      background-color: white;
+    }
+  }
+  .totalPriceBox {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+
+    .totalPrice {
+      font-size: 30px;
+    }
+  }
+}

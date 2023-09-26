@@ -1,0 +1,56 @@
+.selectMenu {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 330px;
+
+  .selectBtn {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    width: 300px;
+    background-color: rgb(1, 119, 237);
+    font-size: 18px;
+    color: white;
+    padding: 15px 0px 15px 0px;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 300px;
+    background-color: #004284;
+    cursor: pointer;
+  }
+
+  .option {
+    display: flex;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    opacity: 0.8;
+    padding: 10px 0px 10px 0px;
+
+    i {
+      margin: 0px 20px;
+    }
+  }
+
+  .option:hover {
+    background-color: #004284;
+    opacity: 1;
+    color: white;
+  }
+}
+
+.categoryList {
+  position: relative;
+  .selectMenu {
+    position: absolute;
+    top: 43px;
+    left: 0px;
+    margin: 0;
+  }
+}
