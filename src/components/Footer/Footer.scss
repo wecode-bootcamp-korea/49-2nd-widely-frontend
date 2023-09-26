@@ -1,0 +1,110 @@
+@import '../../styles/variables.scss';
+
+.footerMain {
+  width: 100%;
+  font-size: 14px;
+  flex-direction: column;
+  background-color: var(--black);
+  color: var(--gray);
+
+  margin: 20px 0 0;
+  height: auto;
+  position: relative;
+
+  .footerContents {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 80px 0 100px;
+
+    .footerArea1 {
+      display: flex;
+      gap: 70px;
+      align-items: center;
+      font-size: 16px;
+
+      li {
+        gap: 70px;
+      }
+    }
+
+    hr {
+      background-color: var(--gray);
+      margin: 24px 0;
+      width: 100%;
+      height: 1px;
+      border: 0;
+    }
+
+    .footerArea2 {
+      display: flex;
+      justify-content: space-between;
+
+      .footerArea2Left {
+        line-height: 120%;
+
+        p:first-child {
+          font-size: 15px;
+          margin-bottom: 1rem;
+        }
+      }
+
+      .footerArea2Right {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        .footerKakao {
+          margin-bottom: 12px;
+          .kakao-img {
+            width: 45px;
+            height: 45px;
+            margin: 0 0 10px;
+          }
+          p:last-child {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 140%;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+          }
+        }
+        .footerCs {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: flex-start;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 140%;
+          letter-spacing: -0.02em;
+        }
+      }
+    }
+    .footerArea3 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 36px 0 0;
+
+      .footerArea3Left {
+        display: flex;
+        align-items: center;
+
+        li:not(:first-of-type) {
+          padding: 0 18px 0;
+          border-left: 1px solid var(--gray);
+        }
+
+        li:first-child {
+          padding-right: 18px;
+        }
+        li:last-child {
+          padding-right: none;
+          border-right: none;
+        }
+      }
+    }
+  }
+}
