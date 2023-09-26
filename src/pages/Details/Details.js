@@ -2,12 +2,17 @@ import React, { useEffect, useState } from 'react';
 import './Details.scss';
 import Count from '../../components/Count/Count';
 import Delivery from '../../components/Delivery/Delivery';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Details = () => {
   const [count, setCount] = useState(1);
   const [product, setProduct] = useState({});
+  const navigate = useNavigate();
   const params = useParams();
+
+  const basketClcik = () => {
+    navigate('/basket');
+  };
 
   useEffect(() => {
     const productId = Number(params.productId);
@@ -24,7 +29,7 @@ const Details = () => {
           }
         }
       });
-  }, []);
+  }, [params.productId]);
 
   return (
     <div className="details">
@@ -56,7 +61,9 @@ const Details = () => {
           <Delivery />
 
           <div>
-            <button className="basket">장바구니</button>
+            <button className="basket" onClick={basketClcik}>
+              장바구니
+            </button>
           </div>
         </div>
       </div>
