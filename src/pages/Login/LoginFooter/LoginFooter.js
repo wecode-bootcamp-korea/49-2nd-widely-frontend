@@ -3,7 +3,7 @@ import './LoginFooter.scss';
 
 const LoginFooter = () => {
   return (
-    <div>
+    <div className="ftMain">
       <div className="logFtBox">
         <div className="ftText">
           <div className="ftTop">
@@ -11,11 +11,10 @@ const LoginFooter = () => {
           </div>
           <div className="ftMid">
             <p>더 편리한 서비스를 위해 와이즐리 스토어 서버가 이전 되었어요.</p>
-            <p>
+            <p className="fontBlack">
               기존 카카오 로그인을 이용하시던 분은 동일하게 "카톡으로 쉽게
               시작하기" 클릭 후 자동 인증 및 로그인
-            </p>
-            <p>
+              <br />
               이메일 고객은 "비밀번호 찾기" 기능을 통해 새로운 비밀번호를 설정해
               주시면 됩니다.
             </p>

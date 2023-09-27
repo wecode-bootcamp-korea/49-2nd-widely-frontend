@@ -1,11 +1,12 @@
 import React from 'react';
 import Input from '../../../components/Input/Input';
+// import Button from '../../../components/Button/Button';
 import './LoginInfo.scss';
 
 const LoginInfo = () => {
   return (
     <form>
-      <fieldset>
+      <fieldset className="logInfoMain">
         <legend>로그인</legend>
         <div className="loginInput">
           <Input
@@ -28,6 +29,7 @@ const LoginInfo = () => {
         <div className="loginButton">
           <button>로그인</button>
           <button>회원가입</button>
+          <button>카톡으로 쉽게 시작하기</button>
         </div>
         <ul className="search">
           <li>회원가입</li>
