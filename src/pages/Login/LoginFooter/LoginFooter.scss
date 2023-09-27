@@ -1,0 +1,28 @@
+@import '../../../styles/variables.scss';
+
+.logFtBox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--footer--gray);
+  padding: 44px 0 74px;
+  margin: 0 auto;
+
+  .ftText {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 160%;
+
+    .ftTop {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 20px;
+
+      .store {
+      }
+    }
+  }
+}
