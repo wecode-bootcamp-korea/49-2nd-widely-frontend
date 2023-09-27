@@ -13,6 +13,7 @@ const Input = (props) => {
     disabled,
     name,
     onChange,
+    status,
   } = props;
 
   return (
@@ -23,6 +24,7 @@ const Input = (props) => {
       disabled={disabled}
       name={name}
       onChange={handleChange}
+      status={status}
     />
   );
 };
