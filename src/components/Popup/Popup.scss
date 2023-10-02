@@ -10,6 +10,18 @@
   height: 200px;
   top: 50%;
   left: 33%;
+  .delete {
+    display: flex;
+    flex-direction: row-reverse;
+    color: gray;
+    width: 90%;
+    font-size: 20px;
+    cursor: pointer;
+    &:hover {
+      color: black;
+      opacity: 0.8;
+    }
+  }
   .explanation {
     display: flex;
     justify-content: center;

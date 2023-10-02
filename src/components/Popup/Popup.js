@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Popup.scss';
 import { useNavigate } from 'react-router-dom';
 
-const Popup = () => {
+const Popup = ({ close }) => {
   const navigate = useNavigate();
 
   const moveToAll = () => {
@@ -15,6 +15,9 @@ const Popup = () => {
 
   return (
     <div className="popup">
+      <div className="delete" onClick={close}>
+        X
+      </div>
       <div className="explanation">
         상품이 장바구니에 담겼습니다.
         <br />

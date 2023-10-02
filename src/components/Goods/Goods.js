@@ -10,35 +10,16 @@ const Goods = (props) => {
   const showDetail = (id) => {
     navigate(`/details/${id}`);
   };
-  const sortDetail = (sorting) => {
-    navigate(`/details/${sorting}`);
-  };
 
   return (
     <div>
-      <h1>{data.category}</h1>
-      <div className="total">
-        <p>{`총 ${data.total} 개`}</p>
-
-        <select
-          onChange={() => {
-            sortDetail(sorting.id);
-          }}
-          className="select"
-        >
-          {sorting.map((list) => {
-            return <option key={list.id}>{list.name}</option>;
-          })}
-        </select>
-      </div>
-
       <div className="goods">
         {data.list.map((item) => {
           return (
             <div className="goodsProduct" key={item.id}>
               <img
                 className="imgSize"
-                src={`${item.img}`}
+                src={`${item.thumbnailImage}`}
                 alt="상품이미지"
                 onClick={() => showDetail(item.id)}
               />
@@ -48,8 +29,8 @@ const Goods = (props) => {
               <p
                 className="title"
                 onClick={() => showDetail(item.id)}
-              >{`${item.title}`}</p>
-              <span className="Description">{`${item.Description}`}</span>
+              >{`${item.name}`}</p>
+              <span className="Description">{`${item.description}`}</span>
             </div>
           );
         })}
@@ -59,21 +40,3 @@ const Goods = (props) => {
 };
 
 export default Goods;
-const sorting = [
-  {
-    id: 1,
-    name: '정렬방식',
-  },
-  {
-    id: 2,
-    name: '신상품',
-  },
-  {
-    id: 3,
-    name: '낮은가격',
-  },
-  {
-    id: 4,
-    name: '높은가격',
-  },
-];

@@ -19,17 +19,12 @@ const Details = () => {
   useEffect(() => {
     const productId = Number(params.productId);
 
-    fetch('/data/product/all.json')
+    fetch(`http://10.58.52.161:8000/products/${productId}`)
       .then((res) => {
         return res.json();
       })
       .then((data) => {
-        const list = data.list;
-        for (let i = 0; i < list.length; i++) {
-          if (list[i].id === productId) {
-            setProduct(list[i]);
-          }
-        }
+        setProduct(data.data);
       });
   }, [params.productId]);
 
@@ -37,18 +32,18 @@ const Details = () => {
     <div className="details">
       <div className="container">
         <div className="imgBox">
-          <img src={product.img} alt="제품이미지" />
+          <img src={product.thumbnailImage} alt="제품이미지" />
         </div>
 
         <div className="decision">
-          <p className="brandName">와이들리 면도기</p>
+          <p className="brandName">와이들리</p>
 
           <div className="title">
-            <h1>{product.title}</h1>
+            <h1>{product.name}</h1>
             <i className="fa-regular fa-heart" />
           </div>
 
-          <p className="assistant">{product.Description}</p>
+          <p className="assistant">{product.description}</p>
           <span className="price">
             {product.price?.toLocaleString('ko-KR')} 원
           </span>
@@ -70,7 +65,7 @@ const Details = () => {
         </div>
       </div>
 
-      {popup ? <Popup /> : null}
+      {popup ? <Popup close={() => setPopup(false)} /> : null}
     </div>
   );
 };

@@ -46,7 +46,7 @@ const NAVBAR_DATA = [
   },
   {
     id: 3,
-    name: 'nutrients',
+    name: 'nutrient',
     tabName: '영양제',
     icon: 'fa-solid fa-capsules',
   },
