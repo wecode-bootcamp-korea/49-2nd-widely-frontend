@@ -13,7 +13,6 @@ const Product = () => {
   };
 
   useEffect(() => {
-    console.log('reload');
     fetch(
       `http://10.58.52.161:8000/products?category=${params.category}&sort=${sort}&page=1`,
     )
