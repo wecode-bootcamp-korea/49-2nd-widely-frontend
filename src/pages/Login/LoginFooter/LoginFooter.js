@@ -27,7 +27,9 @@ const LoginFooter = () => {
           </div>
         </div>
         <div className="ftCs">
-          <button type="button">카카오톡 문의</button>
+          <button type="button" className="ftCsBtn">
+            카카오톡 문의
+          </button>
         </div>
       </div>
     </div>
