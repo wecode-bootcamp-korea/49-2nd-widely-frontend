@@ -10,6 +10,9 @@ const Goods = (props) => {
   const showDetail = (id) => {
     navigate(`/details/${id}`);
   };
+  const sortDetail = (sorting) => {
+    navigate(`/details/${sorting}`);
+  };
 
   return (
     <div>
@@ -17,13 +20,18 @@ const Goods = (props) => {
       <div className="total">
         <p>{`총 ${data.total} 개`}</p>
 
-        <select className="select">
-          <option>-정렬 방식-</option>
-          <option>신상품</option>
-          <option>낮은가격</option>
-          <option>높은가격</option>
+        <select
+          onChange={() => {
+            sortDetail(sorting.id);
+          }}
+          className="select"
+        >
+          {sorting.map((list) => {
+            return <option key={list.id}>{list.name}</option>;
+          })}
         </select>
       </div>
+
       <div className="goods">
         {data.list.map((item) => {
           return (
@@ -51,3 +59,21 @@ const Goods = (props) => {
 };
 
 export default Goods;
+const sorting = [
+  {
+    id: 1,
+    name: '정렬방식',
+  },
+  {
+    id: 2,
+    name: '신상품',
+  },
+  {
+    id: 3,
+    name: '낮은가격',
+  },
+  {
+    id: 4,
+    name: '높은가격',
+  },
+];

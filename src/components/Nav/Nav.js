@@ -1,10 +1,21 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Dropdown from './component/Dropdown';
 import './Nav.scss';
 
 const Nav = () => {
   const [listBtn, setListBtn] = useState(false);
+  const [text, setText] = useState('');
+  const navigate = useNavigate();
+
+  const saveText = (e) => {
+    setText(e.target.value);
+  };
+
+  const search = () => {
+    navigate(`/search?keyword=${text}`);
+    setText('');
+  };
 
   return (
     <nav className="nav">
@@ -51,8 +62,10 @@ const Nav = () => {
           </div>
           <div className="inputI">
             <div className="glasses">
-              <input type="text" />
-              <i className="fa-solid fa-magnifying-glass" />
+              <input type="text" value={text} onChange={saveText} />
+              <div onClick={search}>
+                <i className="fa-solid fa-magnifying-glass" />
+              </div>
             </div>
             <i className="fa-regular fa-heart" />
             <i className="fa-solid fa-bag-shopping" />

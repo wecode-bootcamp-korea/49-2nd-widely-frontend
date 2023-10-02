@@ -2,16 +2,18 @@ import React, { useEffect, useState } from 'react';
 import './Details.scss';
 import Count from '../../components/Count/Count';
 import Delivery from '../../components/Delivery/Delivery';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import Popup from '../../components/Popup/Popup';
 
 const Details = () => {
   const [count, setCount] = useState(1);
   const [product, setProduct] = useState({});
-  const navigate = useNavigate();
   const params = useParams();
 
-  const basketClcik = () => {
-    navigate('/basket');
+  const [popup, setPopup] = useState(false);
+
+  const basketClick = () => {
+    setPopup(true);
   };
 
   useEffect(() => {
@@ -61,12 +63,14 @@ const Details = () => {
           <Delivery />
 
           <div>
-            <button className="basket" onClick={basketClcik}>
+            <button className="basket" onClick={basketClick}>
               장바구니
             </button>
           </div>
         </div>
       </div>
+
+      {popup ? <Popup /> : null}
     </div>
   );
 };

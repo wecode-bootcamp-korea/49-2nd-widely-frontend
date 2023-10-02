@@ -1,0 +1,58 @@
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import './Search.scss';
+
+const Search = () => {
+  const [keyword, setKeyword] = useState('');
+  const [dataList, setDataList] = useState([]);
+  const [serchParams, setSearchParams] = useSearchParams();
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    const keyword = serchParams.get('keyword');
+    fetch(`http://10.58.52.161:8000/search?keyword=${keyword}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((result) => {
+        setDataList(result.data);
+      });
+    setKeyword(keyword);
+  }, [serchParams]);
+
+  const showDetail = (id) => {
+    navigate(`/details/${id}`);
+  };
+
+  return (
+    <div className="search">
+      <h1 className="result">'{keyword}'에 대한 검색결과</h1>
+      <div className="conteiner">
+        <div className="goods">
+          {dataList.map((item) => {
+            return (
+              <div className="goodsProduct" key={item.id}>
+                <img
+                  className="imgSize"
+                  src={`${item.thumbnailImage}`}
+                  alt="상품이미지"
+                  onClick={() => showDetail(item.id)}
+                />
+                <span className="price">
+                  {`${item.price.toLocaleString('ko-KR')}원 `}
+                </span>
+                <p
+                  className="title"
+                  onClick={() => showDetail(item.id)}
+                >{`${item.name}`}</p>
+                <span className="Description">{`${item.description}`}</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Search;
