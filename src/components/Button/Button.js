@@ -3,9 +3,9 @@ import './Button.scss';
 
 const Button = (props) => {
   const {
+    label,
     type,
     value,
-    name,
     size,
     shape,
     disabled,
@@ -14,9 +14,9 @@ const Button = (props) => {
   } = props;
   return (
     <button
-      type={type}
-      value={value}
-      name={name}
+      label={label} //버튼안에 들어갈내용
+      type={type} //타입(전송,버튼,초기화)
+      value={value} //
       size={size}
       shape={shape}
       disabled={disabled}
@@ -25,3 +25,6 @@ const Button = (props) => {
     />
   );
 };
+
+export default Button;
+

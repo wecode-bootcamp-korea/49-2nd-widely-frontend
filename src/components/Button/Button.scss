@@ -9,6 +9,8 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 140%;
+    letter-spacing: -0.02em;
+
     color: #ffffff;
   }
 
@@ -17,6 +19,8 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 140%; //상위 css 적용X
+    letter-spacing: -0.02em;
+
     color: #1c1c1c;
   }
 
@@ -39,7 +43,13 @@
     border: 1px solid #bcbcbc; //CSS적용X
     line-height: 1;
     font-weight: normal;
+    text-decoration: none;
+    vertical-align: middle;
+    word-spacing: -0.5px;
+    letter-spacing: 0;
     text-align: center;
+    white-space: nowrap;
+
     color: #000; //CSS적용X
     background-color: #fff;
 
@@ -81,6 +91,8 @@
     height: 55px; //CSS적용 X
     padding: 19px 0;
     font-size: 16px; //CSS적용 X
+    letter-spacing: -0.025em;
+
     font-weight: 400;
     border: 1px solid #1c1c1c;
     color: #1c1c1c;
@@ -94,8 +106,24 @@
     padding: 19px 0;
   }
 
+  // &[size='smallW'] {
+  //   height: 40px;
+  //   display: inline-block;
+  //   padding: 12px 20px;
+  //   border: 1px solid #bcbcbc;
+  //   line-height: 1;
+  //   font-size: 13px;
+  //   font-weight: normal;
+  //   text-align: center;
+  //   white-space: nowrap;
+  //   color: #000;
+  //   background-color: #fff;
+  // }
+
   //장바구니 etc(회색)
   &[size='smallB'] {
+    text-decoration: none;
+
     color: #1c1c1c;
     max-width: 93px;
     width: 100%;
@@ -127,9 +155,10 @@
     line-height: 56px;
     font-size: 16px;
   }
-
   //주문버튼 클릭시 모달창버튼 (더담기)
   &[size='middle'] {
+    text-decoration: none;
+
     color: #1c1c1c;
     background: none;
     min-width: 50%;
