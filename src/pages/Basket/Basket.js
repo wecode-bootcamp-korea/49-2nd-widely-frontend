@@ -6,6 +6,7 @@ const Basket = () => {
   return (
     <div className="cartMain">
       <div className="Container">
+
         <div className="btSection">
           <div className="btwrap">
             <h2>장바구니</h2>

@@ -38,7 +38,7 @@ const Nav = () => {
             <div className="categoryList">
               <i className="fa-solid fa-bars" />
               <button>카테고리</button>
-              {listBtn ? <Dropdown /> : null}
+              {listBtn ? <Dropdown setListBtn={setListBtn} /> : null}
             </div>
           </div>
           <div className="tabWrapper">
