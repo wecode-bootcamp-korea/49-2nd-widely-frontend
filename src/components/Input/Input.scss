@@ -4,32 +4,33 @@
   display: flex;
   border: 1px solid var(--input--gray);
   width: 100%;
-  height: 40px;
+  max-width: 370px;
+  height: 55px;
   padding: 2px 4px 2px 15px;
+  margin-bottom: 16px;
   outline: 1px;
   color: var(--input--gray);
+  font-size: 14px;
 
   &::placeholder {
-    font-size: 16px;
+    font-size: 13px;
     line-height: 120%;
   }
 
   &:focus {
     border: 1px solid var(--black);
     color: var(--black);
-
-    &::placeholder {
-      font-size: 16px;
-      line-height: 120%;
-    }
   }
 
   &:disabled {
-    background-color: var(--white);
-    border-color: var(--input--gray);
+    background-color: var(--footer--gray);
+  }
 
-    &::placeholder {
-      color: var(--input--gray);
-    }
+  &[status='error'] {
+    border: 1px solid var(--red);
+  }
+
+  &[status='done'] {
+    border: 1px solid var(--blue);
   }
 }
