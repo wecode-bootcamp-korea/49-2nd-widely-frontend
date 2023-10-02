@@ -1,0 +1,46 @@
+@import '../../../styles/variables.scss';
+
+.ftMain {
+  width: 100%;
+  background-color: var(--footer--gray);
+
+  .logFtBox {
+    max-width: 1050px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 44px 0 74px;
+    margin: 0 auto;
+
+    .ftText {
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 14px;
+      line-height: 160%;
+      color: var(--gray);
+
+      .ftTop {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: var(--black);
+      }
+
+      .ftMid {
+        margin-bottom: 30px;
+
+        .fontBlack {
+          font-weight: 600;
+          color: var(--black);
+        }
+      }
+    }
+    .ftCs {
+      width: 100%;
+      max-width: 144px;
+      height: 42px;
+      margin-top: 38px;
+    }
+  }
+}
