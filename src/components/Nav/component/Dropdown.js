@@ -6,7 +6,7 @@ const Dropdown = ({ setListBtn }) => {
   const navigate = useNavigate();
 
   const handleClick = (name) => {
-    navigate(`/product/${name}`);
+    navigate(`/products?category=${name}`);
     setListBtn(false);
   };
   return (

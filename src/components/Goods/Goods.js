@@ -3,18 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import './Goods.scss';
 
 const Goods = (props) => {
-  const { data } = props;
+  const { datalist } = props;
 
   const navigate = useNavigate();
 
   const showDetail = (id) => {
-    navigate(`/details/${id}`);
+    navigate(`/products/${id}`);
   };
 
   return (
     <div>
       <div className="goods">
-        {data.list.map((item) => {
+        {datalist.map((item) => {
           return (
             <div className="goodsProduct" key={item.id}>
               <img

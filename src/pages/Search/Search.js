@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import './Search.scss';
 
 const Search = () => {
   const [keyword, setKeyword] = useState('');
   const [dataList, setDataList] = useState([]);
-  const [serchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const navigate = useNavigate();
   useEffect(() => {
-    const keyword = serchParams.get('keyword');
-    fetch(`http://10.58.52.161:8000/search?keyword=${keyword}`)
+    const keyword = searchParams.get('keyword');
+    fetch(`http://10.58.52.247:8000/search?keyword=${keyword}`)
       .then((res) => {
         return res.json();
       })
@@ -18,10 +18,10 @@ const Search = () => {
         setDataList(result.data);
       });
     setKeyword(keyword);
-  }, [serchParams]);
+  }, [searchParams]);
 
   const showDetail = (id) => {
-    navigate(`/details/${id}`);
+    navigate(`/products/${id}`);
   };
 
   return (

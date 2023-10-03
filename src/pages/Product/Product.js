@@ -1,28 +1,52 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import Goods from '../../components/Goods/Goods';
 import './Product.scss';
+
+const size = 6;
+const pageLimit = 5;
 
 const Product = () => {
   const [data, setData] = useState({});
   const [sort, setSort] = useState(sortingList[0].value);
-  const params = useParams();
+
+  //페이지네이션
+  const [currentPage, setCurrentPage] = useState(1); //현재페이지
+  const [totalPage, setTotalPage] = useState(0);
+  const [pageArray, setPageArray] = useState([]);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const makePageArray = (totalPage) => {
+    const arr = [];
+    const startPage = Math.floor((currentPage - 1) / pageLimit) * pageLimit + 1;
+    const endPage = Math.min(startPage + pageLimit - 1, totalPage);
+
+    for (let i = startPage; i < endPage + 1; i++) {
+      arr.push(i);
+    }
+    return arr;
+  };
 
   const changeSort = (e) => {
     setSort(e.target.value);
   };
 
   useEffect(() => {
+    const category = searchParams.get('category');
     fetch(
-      `http://10.58.52.161:8000/products?category=${params.category}&sort=${sort}&page=1`,
+      `http://10.58.52.247:8000/products?category=${category}&sort=${sort}&page=${currentPage}&size=${size}`,
     )
       .then((res) => {
         return res.json();
       })
       .then((result) => {
         setData(result.data);
+        const totalPage = Math.ceil(result.data.total / size);
+        setTotalPage(totalPage);
+        setPageArray(makePageArray(totalPage));
       });
-  }, [params.category, sort]);
+  }, [searchParams, sort, currentPage]);
 
   if (!Object.keys(data).length > 0) return null;
 
@@ -43,7 +67,38 @@ const Product = () => {
             })}
           </select>
         </div>
-        <Goods data={data} />
+        <Goods datalist={data.list} />
+      </div>
+
+      <div className="pagination">
+        {currentPage === 1 ? null : (
+          <span
+            className="arrow"
+            onClick={() => setCurrentPage(currentPage - 1)}
+          >
+            {'<'}
+          </span>
+        )}
+
+        {pageArray.map((num) => {
+          return (
+            <span
+              key={num}
+              onClick={() => setCurrentPage(num)}
+              className={num === currentPage ? 'clicked' : 'notClicked'}
+            >
+              {num}
+            </span>
+          );
+        })}
+        {currentPage === totalPage ? null : (
+          <span
+            className="arrow"
+            onClick={() => setCurrentPage(currentPage + 1)}
+          >
+            {'>'}
+          </span>
+        )}
       </div>
     </div>
   );
@@ -54,17 +109,17 @@ export default Product;
 const sortingList = [
   {
     id: 0,
-    name: '신상품',
+    name: '신상품순',
     value: 'latest',
   },
   {
     id: 1,
-    name: '낮은가격',
+    name: '낮은가격순',
     value: 'lowprice',
   },
   {
     id: 2,
-    name: '높은가격',
+    name: '높은가격순',
     value: 'highprice',
   },
 ];
