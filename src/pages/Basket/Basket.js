@@ -1,6 +1,7 @@
 import React from 'react';
 import './Basket.scss';
 import BasketPrice from '../../components/BasketPrice/BasketPrice';
+import BasketItem from '../../components/BasketItem/BasketItem';
 
 const Basket = () => {
   return (
@@ -19,7 +20,8 @@ const Basket = () => {
                   <div>선택삭제</div>
                 </div>
                 <div className="infoWrap">
-                  <p className="messageWed">장바구니에 담긴 제품이 없습니다</p>
+                  <BasketItem />
+                  {/* <p className="messageWed">장바구니에 담긴 제품이 없습니다</p> */}
                   <BasketPrice />
                 </div>
               </div>
