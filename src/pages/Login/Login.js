@@ -8,8 +8,11 @@ const Login = () => {
     <div>
       <div className="loginWrap">
         <div className="loginBox">
-          <p>
-            <strong>로그인 및 회원가입</strong>을<p>시작합니다</p>
+          <p className="loginStart">
+            <span>로그인 및 회원가입</span>
+            을
+            <br />
+            시작합니다
           </p>
           <LoginInfo />
         </div>
