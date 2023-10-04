@@ -19,7 +19,9 @@ const Product = () => {
   const changeSort = (e) => {
     setSort(e.target.value);
   };
-
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [sort, currentPage]);
   useEffect(() => {
     const category = searchParams.get('category');
     fetch(
