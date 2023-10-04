@@ -3,6 +3,8 @@
 
   color: white;
   text-wrap: nowrap;
+  position: relative;
+  z-index: 1;
 
   .event {
     font-size: 16px;
