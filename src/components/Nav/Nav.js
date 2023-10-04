@@ -7,14 +7,19 @@ const Nav = () => {
   const [listBtn, setListBtn] = useState(false);
   const [text, setText] = useState('');
   const navigate = useNavigate();
-
-  const saveText = (e) => {
-    setText(e.target.value);
+  const saveText = (text) => {
+    setText(text);
   };
 
   const search = () => {
     navigate(`/search?keyword=${text}`);
     setText('');
+  };
+  const onSubmitSearch = (e) => {
+    if (e.key === 'Enter') {
+      setText('');
+      search();
+    }
   };
 
   return (
@@ -62,7 +67,12 @@ const Nav = () => {
           </div>
           <div className="inputI">
             <div className="glasses">
-              <input type="text" value={text} onChange={saveText} />
+              <input
+                type="text"
+                value={text}
+                onChange={(e) => saveText(e.target.value)}
+                onKeyPress={onSubmitSearch}
+              />
               <div onClick={search}>
                 <i className="fa-solid fa-magnifying-glass" />
               </div>
