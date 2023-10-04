@@ -8,10 +8,12 @@ import Details from './pages/Details/Details';
 import Footer from './components/Footer/Footer';
 import Basket from './pages/Basket/Basket';
 import Search from './pages/Search/Search';
+import ScrollToTop from './components/ScrollTop/ScrollTop';
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Nav />
       <Routes>
         <Route path="/" element={<Login />} />
