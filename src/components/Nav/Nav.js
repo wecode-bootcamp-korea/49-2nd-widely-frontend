@@ -12,20 +12,29 @@ const Nav = () => {
   };
 
   const search = () => {
+    if (text === '') {
+      return;
+    }
     navigate(`/search?keyword=${text}`);
     setText('');
   };
   const onSubmitSearch = (e) => {
     if (e.key === 'Enter') {
+      if (text === '') {
+        return;
+      }
       setText('');
       search();
     }
+  };
+  const newPage = () => {
+    navigate();
   };
 
   return (
     <nav className="nav">
       <p className="event">
-        <b>[신규혜택]</b> 1만원 쿠폰팩 증정
+        <b>[와이들리]</b> 와이들리를 이용해 주신 회원님 환영합니다!
       </p>
       <header>
         <div className="inner-wrap">
@@ -61,7 +70,7 @@ const Nav = () => {
             <Link className="mainLink" to="/main">
               홈
             </Link>
-            <span>신제품</span>
+            <span onClick={newPage}>신제품</span>
             <span>베스트</span>
             <span>와이들리 LAB</span>
           </div>

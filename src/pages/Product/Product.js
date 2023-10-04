@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import Goods from '../../components/Goods/Goods';
 import './Product.scss';
 import Pagination from '../../components/Pagination/Pagination';
@@ -15,15 +15,19 @@ const Product = () => {
   const [currentPage, setCurrentPage] = useState(1); //현재페이지
   const [totalPage, setTotalPage] = useState(0);
   const [searchParams, setSearchParams] = useSearchParams();
+  const category = searchParams.get('category');
 
   const changeSort = (e) => {
     setSort(e.target.value);
   };
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [category]);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [sort, currentPage]);
   useEffect(() => {
-    const category = searchParams.get('category');
     fetch(
       `http://10.58.52.209:8000/products?category=${category}&sort=${sort}&page=${currentPage}&size=${size}`,
     )
@@ -31,12 +35,11 @@ const Product = () => {
         return res.json();
       })
       .then((result) => {
-        setData(result.data);
         const totalPage = Math.ceil(result.data.total / size);
         setTotalPage(totalPage);
+        setData(result.data);
       });
-  }, [searchParams, sort, currentPage]);
-
+  }, [searchParams, sort, currentPage, category]);
   if (!Object.keys(data).length > 0) return null;
 
   return (
