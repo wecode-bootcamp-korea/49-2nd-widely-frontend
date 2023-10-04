@@ -1,0 +1,14 @@
+.zipWrap {
+  display: flex;
+
+  & button {
+    flex: 1;
+    height: 52px;
+    margin-left: 10px;
+    border: 1px solid;
+    background-color: transparent;
+  }
+}
+.addressContainer Input {
+  margin-bottom: 10px;
+}

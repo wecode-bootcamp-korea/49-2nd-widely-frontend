@@ -25,7 +25,7 @@ const Footer = () => {
           <div className="footerArea2Right">
             <div className="footerKakao">
               <img
-                src="/SkinImg/img/icon_kakaotalk_fff.svg"
+                src="https://wisely.store/SkinImg/img/icon_kakaotalk_fff.svg"
                 className="kakaoImg"
               />
               &nbsp;

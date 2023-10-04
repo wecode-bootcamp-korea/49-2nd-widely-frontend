@@ -1,0 +1,48 @@
+@import '../../styles/variables.scss';
+
+.joinMain {
+  width: 100%;
+
+  .joinContainer {
+    max-width: 665px;
+    margin: 0 auto;
+
+    .joinText {
+      padding: 52px 0 2px;
+      text-align: center;
+      & h2 {
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 140%;
+      }
+      .joinBasic {
+        display: flex;
+        justify-content: space-between;
+        margin: 50px 0 20px;
+
+        & h3 {
+          font-weight: 600;
+          font-size: 22px;
+          line-height: 140%;
+        }
+      }
+      .joinForm {
+        text-align: center;
+      }
+
+      .joinButton {
+        display: flex;
+        justify-content: center;
+
+        .joinGo {
+          display: flex;
+          /* margin: 0 auto; */
+        }
+      }
+    }
+  }
+  .mandatory {
+    width: 10px;
+    margin: 0 12px 0 2px;
+  }
+}
