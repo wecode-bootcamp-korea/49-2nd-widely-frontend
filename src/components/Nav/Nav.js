@@ -27,9 +27,6 @@ const Nav = () => {
       search();
     }
   };
-  const newPage = () => {
-    navigate();
-  };
 
   return (
     <nav className="nav">
@@ -70,7 +67,7 @@ const Nav = () => {
             <Link className="mainLink" to="/main">
               홈
             </Link>
-            <span onClick={newPage}>신제품</span>
+            <span>신제품</span>
             <span>베스트</span>
             <span>와이들리 LAB</span>
           </div>
