@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Goods from '../../components/Goods/Goods';
 import './Product.scss';
+import Pagination from '../../components/Pagination/Pagination';
 
 const size = 6;
 const pageLimit = 5;
@@ -13,20 +14,7 @@ const Product = () => {
   //페이지네이션
   const [currentPage, setCurrentPage] = useState(1); //현재페이지
   const [totalPage, setTotalPage] = useState(0);
-  const [pageArray, setPageArray] = useState([]);
-
   const [searchParams, setSearchParams] = useSearchParams();
-
-  const makePageArray = (totalPage) => {
-    const arr = [];
-    const startPage = Math.floor((currentPage - 1) / pageLimit) * pageLimit + 1;
-    const endPage = Math.min(startPage + pageLimit - 1, totalPage);
-
-    for (let i = startPage; i < endPage + 1; i++) {
-      arr.push(i);
-    }
-    return arr;
-  };
 
   const changeSort = (e) => {
     setSort(e.target.value);
@@ -35,7 +23,7 @@ const Product = () => {
   useEffect(() => {
     const category = searchParams.get('category');
     fetch(
-      `http://10.58.52.247:8000/products?category=${category}&sort=${sort}&page=${currentPage}&size=${size}`,
+      `http://10.58.52.209:8000/products?category=${category}&sort=${sort}&page=${currentPage}&size=${size}`,
     )
       .then((res) => {
         return res.json();
@@ -44,7 +32,6 @@ const Product = () => {
         setData(result.data);
         const totalPage = Math.ceil(result.data.total / size);
         setTotalPage(totalPage);
-        setPageArray(makePageArray(totalPage));
       });
   }, [searchParams, sort, currentPage]);
 
@@ -69,37 +56,12 @@ const Product = () => {
         </div>
         <Goods datalist={data.list} />
       </div>
-
-      <div className="pagination">
-        {currentPage === 1 ? null : (
-          <span
-            className="arrow"
-            onClick={() => setCurrentPage(currentPage - 1)}
-          >
-            {'<'}
-          </span>
-        )}
-
-        {pageArray.map((num) => {
-          return (
-            <span
-              key={num}
-              onClick={() => setCurrentPage(num)}
-              className={num === currentPage ? 'clicked' : 'notClicked'}
-            >
-              {num}
-            </span>
-          );
-        })}
-        {currentPage === totalPage ? null : (
-          <span
-            className="arrow"
-            onClick={() => setCurrentPage(currentPage + 1)}
-          >
-            {'>'}
-          </span>
-        )}
-      </div>
+      <Pagination
+        pageLimit={pageLimit}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        totalPage={totalPage}
+      />
     </div>
   );
 };

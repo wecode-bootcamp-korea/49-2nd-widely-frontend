@@ -19,7 +19,7 @@ const Details = () => {
   useEffect(() => {
     const productId = Number(params.productId);
 
-    fetch(`http://10.58.52.247:8000/products/${productId}`)
+    fetch(`http://10.58.52.209:8000/products/${productId}`)
       .then((res) => {
         return res.json();
       })
