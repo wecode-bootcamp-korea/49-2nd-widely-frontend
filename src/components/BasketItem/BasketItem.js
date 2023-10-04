@@ -1,11 +1,10 @@
 import React from 'react';
 import './BasketItem.scss';
 import { useEffect, useState } from 'react';
-import Count from '../Count/Count';
 
 const BasketItem = () => {
   const [itemList, setItemList] = useState([]);
-  const [count, setCount, price] = useState(1);
+  const [count, setCount] = useState(1);
   const minus = () => {
     if (count > 1) {
       setCount(count - 1);
@@ -30,10 +29,12 @@ const BasketItem = () => {
       },
     })
       .then((res) => res.json())
-      .then((res) => {
-        setItemList(res);
+      .then((data) => {
+        setItemList(data);
       });
   }, []);
+
+  console.log(itemList);
 
   return (
     <div className="basketContainer">

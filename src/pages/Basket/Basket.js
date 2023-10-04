@@ -1,12 +1,14 @@
 import React from 'react';
 import './Basket.scss';
-import BasketPrice from '../../components/BasketPrice/BasketPrice';
 import BasketItem from '../../components/BasketItem/BasketItem';
+import BasketPrice from '../../components/BasketPrice/BasketPrice';
+// import CheckBox from '../../components/CheckBox/CheckBox';
+// import { useState } from 'react';
 
 const Basket = () => {
   return (
     <div className="cartMain">
-      <div className="Container">
+      <div className="container">
         <div className="btSection">
           <div className="btwrap">
             <h2>장바구니</h2>
