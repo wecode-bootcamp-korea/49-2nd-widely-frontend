@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginInfo from './LoginInfo/LoginInfo';
+import LoginWrap from './LoginWrap/LoginWrap';
 import LoginFooter from './LoginFooter/LoginFooter';
 import './Login.scss';
 
@@ -14,7 +14,7 @@ const Login = () => {
             <br />
             시작합니다
           </p>
-          <LoginInfo />
+          <LoginWrap />
         </div>
         <LoginFooter />
       </div>

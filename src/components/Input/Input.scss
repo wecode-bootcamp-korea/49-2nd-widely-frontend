@@ -4,20 +4,23 @@
   display: flex;
   border: 1px solid var(--input--gray);
   width: 100%;
-  max-width: 370px;
-  height: 55px;
   padding: 2px 4px 2px 15px;
-  margin-bottom: 16px;
   outline: 1px;
-  color: var(--input--gray);
+  color: var(--black);
   font-size: 14px;
 
   &::placeholder {
     font-size: 13px;
     line-height: 120%;
+    color: var(--input--gray);
   }
 
   &:focus {
+    border: 1px solid var(--black);
+    color: var(--black);
+  }
+
+  &:hover {
     border: 1px solid var(--black);
     color: var(--black);
   }
@@ -32,5 +35,20 @@
 
   &[status='done'] {
     border: 1px solid var(--blue);
+  }
+
+  &[type='checkbox'] {
+    appearance: none;
+    border: none;
+    width: 28px;
+    height: 28px;
+    margin: 8px;
+    background: no-repeat center;
+    background-image: url('https://wisely.store/custom/svg/checkbox.svg');
+    background-size: 25px;
+
+    &:checked {
+      background-image: url('https://wisely.store/custom/svg/checkbox_checked.svg');
+    }
   }
 }
