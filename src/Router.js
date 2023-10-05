@@ -11,17 +11,22 @@ import Basket from './pages/Basket/Basket';
 import FindId from './pages/FindUser/FindId/FindId';
 import FindPw from './pages/FindUser/FindPw/FindPw';
 import JoinDone from './pages/JoinDone/JoinDone';
+import Payment from './pages/Payment/Payment';
+import Search from './pages/Search/Search';
+import ScrollToTop from './components/ScrollTop/ScrollTop';
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Nav />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/join" element={<Join />} />
         <Route path="/main" element={<Main />} />
-        <Route path="/product/:category" element={<Product />} />
-        <Route path="/details/:productId" element={<Details />} />
+        <Route path="/products" element={<Product />} />
+        <Route path="/products/:productId" element={<Details />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/basket" element={<Basket />} />
         <Route path="/find_id" element={<FindId />} />
         <Route path="/fInd_pw" element={<FindPw />} />

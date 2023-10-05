@@ -3,7 +3,7 @@ import {
   FOOTER_DATA_INTRO,
   FOOTER_DATA_INFO,
   FOOTER_DATA_TERMS,
-} from '../../Data/data';
+} from './Data/data';
 import './Footer.scss';
 
 const Footer = () => {
@@ -25,8 +25,9 @@ const Footer = () => {
           <div className="footerArea2Right">
             <div className="footerKakao">
               <img
-                src="https://wisely.store/SkinImg/img/icon_kakaotalk_fff.svg"
+                src="https://www.wisely.store/SkinImg/img/icon_kakaotalk_fff.svg"
                 className="kakaoImg"
+                alt="카카오톡 아이콘"
               />
               &nbsp;
               <p>카카오톡 채널 '와이즐리'</p>

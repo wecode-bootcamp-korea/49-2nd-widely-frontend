@@ -8,8 +8,7 @@ const Delivery = () => {
       <div className="deliveryPrice">
         <div className="d">배송비</div>
         <div className="deliverySmallBox">
-          <span className="b">무료배송까지남은금액</span>
-          <span className="c">9월 한정 혜택입니다</span>
+          <span className="b">9월 한정 혜택입니다.</span>
         </div>
       </div>
     </div>
