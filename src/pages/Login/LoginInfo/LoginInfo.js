@@ -20,19 +20,28 @@ const LoginInfo = () => {
             placeholder="비밀번호를 입력해주세요"
           />
         </div>
-        <div className="loginRadio">
-          <Input type="checkbox" />
-          아이디 저장
-          <Input type="checkbox" />
-          보안접속
+        <div className="loginCheck">
+          <p className="checkWrap">
+            <Input type="checkbox" id="idSave" />
+            <label for="idSave">아이디 저장</label>
+            <Input type="checkbox" id="security" checked />
+            <label for="security">보안접속</label>
+          </p>
         </div>
         <div className="loginButton">
-          <button>로그인</button>
-          <button>회원가입</button>
-          <button>카톡으로 쉽게 시작하기</button>
+          <button type="button" className="loginBtn">
+            로그인
+          </button>
+          <button type="button" className="joinBtn">
+            회원가입
+          </button>
+          <button type="button" className="kakaoBtn">
+            <img src="https://wisely.store/SkinImg/img/icon_kakao.svg" />
+            &nbsp; 카톡으로 쉽게 시작하기
+          </button>
         </div>
         <ul className="search">
-          <li>회원가입</li>
+          <li>이메일 찾기</li>
           <li>비밀번호 찾기</li>
         </ul>
       </fieldset>

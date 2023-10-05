@@ -1,0 +1,79 @@
+.basketContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .itemLine {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 22px 0;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid #f4f4f4;
+
+    .IndividualCheckBox {
+      width: 27px;
+      height: 27px;
+      background-size: 27px;
+      margin: 0 12px 0 0;
+      cursor: pointer;
+    }
+    .bsItemImage {
+      width: 100%;
+      height: 100%;
+      max-width: 83px;
+      max-height: 83px;
+      margin: 0 15px 0 0;
+      border: 0;
+    }
+
+    .beItemWrap {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .bsItemTitle {
+        height: 100%;
+        display: block;
+        margin: 0 0 3px;
+        font-weight: normal;
+        color: #1c1c1c;
+        padding-top: 5px;
+        margin-right: 30px;
+      }
+      .bsCountBox {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid #c2c0c0;
+        margin-left: 50px;
+      }
+      .bsUp {
+        color: #1c1c1c;
+      }
+      button {
+        width: 30px;
+        height: 30px;
+        background-color: white;
+        border: none;
+      }
+
+      .bsItemPrice {
+        padding-top: 5px;
+        font-weight: 700;
+        font-size: 18px;
+        color: #1c1c1c;
+        margin: 0 20px 0 20px;
+      }
+
+      .bsXimage {
+        display: flex;
+        float: right;
+        width: 15px;
+        height: 15px;
+        margin-top: 6px;
+      }
+    }
+  }
+}
