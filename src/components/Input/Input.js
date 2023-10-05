@@ -2,18 +2,15 @@ import React from 'react';
 import './Input.scss';
 
 const Input = (props) => {
-  const handleChange = () => {
-    props.onChange();
-  };
-
   const {
     className = 'input',
     placeholder,
-    type,
+    type = 'text',
     disabled,
     name,
     onChange,
     status,
+    value,
   } = props;
 
   return (
@@ -23,8 +20,9 @@ const Input = (props) => {
       type={type}
       disabled={disabled}
       name={name}
-      onChange={handleChange}
+      onChange={onChange}
       status={status}
+      value={value}
     />
   );
 };

@@ -3,7 +3,11 @@ import {
   FOOTER_DATA_INTRO,
   FOOTER_DATA_INFO,
   FOOTER_DATA_TERMS,
+<<<<<<< HEAD
+} from '../../Data/data';
+=======
 } from './Data/data';
+>>>>>>> b80b600876ebcde6c10c6670d5c0a37d9c4b081d
 import './Footer.scss';
 
 const Footer = () => {
