@@ -36,7 +36,7 @@ const Nav = () => {
       <header>
         <div className="inner-wrap">
           <div>
-            <Link to="/main" className="mainTitle">
+            <Link to="/" className="mainTitle">
               widely
             </Link>
             <span>최고의 가성비가 아니면 팔지않습니다.</span>
@@ -64,7 +64,7 @@ const Nav = () => {
             </div>
           </div>
           <div className="tabWrapper">
-            <Link className="mainLink" to="/main">
+            <Link className="mainLink" to="/">
               홈
             </Link>
             <Link className="mainLink" to="/products?category=new">
