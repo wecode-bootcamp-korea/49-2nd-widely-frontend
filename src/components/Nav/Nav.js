@@ -1,15 +1,37 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Dropdown from './component/Dropdown';
 import './Nav.scss';
 
 const Nav = () => {
   const [listBtn, setListBtn] = useState(false);
+  const [text, setText] = useState('');
+  const navigate = useNavigate();
+  const saveText = (text) => {
+    setText(text);
+  };
+
+  const search = () => {
+    if (text === '') {
+      return;
+    }
+    navigate(`/search?keyword=${text}`);
+    setText('');
+  };
+  const onSubmitSearch = (e) => {
+    if (e.key === 'Enter') {
+      if (text === '') {
+        return;
+      }
+      setText('');
+      search();
+    }
+  };
 
   return (
     <nav className="nav">
       <p className="event">
-        <b>[신규혜택]</b> 1만원 쿠폰팩 증정
+        <b>[와이들리]</b> 와이들리를 이용해 주신 회원님 환영합니다!
       </p>
       <header>
         <div className="inner-wrap">
@@ -42,15 +64,26 @@ const Nav = () => {
             </div>
           </div>
           <div className="tabWrapper">
-            <span>홈</span>
-            <span>신제품</span>
+            <Link className="mainLink" to="/main">
+              홈
+            </Link>
+            <Link className="mainLink" to="/products?category=new">
+              신제품
+            </Link>
             <span>베스트</span>
             <span>와이들리 LAB</span>
           </div>
           <div className="inputI">
             <div className="glasses">
-              <input type="text" />
-              <i className="fa-solid fa-magnifying-glass" />
+              <input
+                type="text"
+                value={text}
+                onChange={(e) => saveText(e.target.value)}
+                onKeyPress={onSubmitSearch}
+              />
+              <div onClick={search}>
+                <i className="fa-solid fa-magnifying-glass" />
+              </div>
             </div>
             <i className="fa-regular fa-heart" />
             <i className="fa-solid fa-bag-shopping" />
