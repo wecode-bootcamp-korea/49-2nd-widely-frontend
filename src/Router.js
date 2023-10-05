@@ -21,9 +21,9 @@ const Router = () => {
       <ScrollToTop />
       <Nav />
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Main />} />
         <Route path="/join" element={<Join />} />
-        <Route path="/main" element={<Main />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/products" element={<Product />} />
         <Route path="/products/:productId" element={<Details />} />
         <Route path="/search" element={<Search />} />
