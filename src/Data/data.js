@@ -32,3 +32,42 @@ export const FOOTER_DATA_TERMS = [
   { id: 4, text: '이용약관' },
   { id: 5, text: '이메일무단수집거부' },
 ];
+
+export const NAVBAR_DATA = [
+  {
+    id: 1,
+    name: 'all',
+    tabName: '전체보기',
+    icon: 'fa-solid fa-grip',
+  },
+  {
+    id: 2,
+    name: 'new',
+    tabName: '신제품',
+    icon: 'fa-solid fa-certificate',
+  },
+  {
+    id: 3,
+    name: 'nutrient',
+    tabName: '영양제',
+    icon: 'fa-solid fa-capsules',
+  },
+  {
+    id: 4,
+    name: 'shaving',
+    tabName: '면도/구강',
+    icon: 'fa-regular fa-hand-spock',
+  },
+  {
+    id: 5,
+    name: 'skin',
+    tabName: '스킨케어',
+    icon: 'fa-solid fa-spray-can',
+  },
+  {
+    id: 6,
+    name: 'food',
+    tabName: '푸드',
+    icon: 'fa-solid fa-bowl-food',
+  },
+];

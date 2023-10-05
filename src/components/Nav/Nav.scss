@@ -3,6 +3,8 @@
 
   color: white;
   text-wrap: nowrap;
+  position: relative;
+  z-index: 1;
 
   .event {
     font-size: 16px;
@@ -88,7 +90,24 @@
   .tabWrapper {
     display: flex;
     gap: 40px;
-    opacity: 0.5;
+
+    .mainLink {
+      color: white;
+      text-decoration-line: none;
+      font-size: 20px;
+      opacity: 0.5;
+      &:hover {
+        color: white;
+        opacity: 1;
+      }
+    }
+    span {
+      opacity: 0.5;
+      &:hover {
+        color: white;
+        opacity: 1;
+      }
+    }
   }
 
   .inputI {

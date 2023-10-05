@@ -1,0 +1,54 @@
+.popup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 550px;
+  height: 200px;
+  top: 50%;
+  left: 33%;
+  .delete {
+    display: flex;
+    flex-direction: row-reverse;
+    color: gray;
+    width: 90%;
+    font-size: 20px;
+    cursor: pointer;
+    &:hover {
+      color: black;
+      opacity: 0.8;
+    }
+  }
+  .explanation {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 25px;
+    margin: 20px 0px;
+    width: 100%;
+  }
+  .choice {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    gap: 30px;
+    button {
+      padding: 5px 5px;
+      border: 1px solid black;
+      border-radius: 20px;
+      background-color: white;
+      font-weight: 400;
+      &:hover {
+        background-color: white;
+        opacity: 0.5;
+        cursor: pointer;
+      }
+    }
+  }
+
+  background-color: white;
+}
