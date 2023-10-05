@@ -4,7 +4,7 @@ import './Delivery.scss';
 const Delivery = () => {
   return (
     <div className="deliveryBox">
-      <div className="a">4만원 이상 구매 시 무료배송</div>
+      <div className="a">2만원 이상 구매 시 무료배송</div>
       <div className="deliveryPrice">
         <div className="d">배송비</div>
         <div className="deliverySmallBox">
