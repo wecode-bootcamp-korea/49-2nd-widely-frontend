@@ -27,6 +27,9 @@ const Nav = () => {
       search();
     }
   };
+  const goBasket = () => {
+    navigate('/basket');
+  };
 
   return (
     <nav className="nav">
@@ -86,7 +89,9 @@ const Nav = () => {
               </div>
             </div>
             <i className="fa-regular fa-heart" />
-            <i className="fa-solid fa-bag-shopping" />
+            <div onClick={goBasket} className="basket">
+              <i className="fa-solid fa-bag-shopping" />
+            </div>
           </div>
         </div>
       </div>
