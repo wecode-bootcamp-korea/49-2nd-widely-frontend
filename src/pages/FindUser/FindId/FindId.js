@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Input from '../../../components/Input/Input';
 import './FindId.scss';
-import Phone from '../../Join/Phone/Phone';
+// import Phone from '../../Join/Phone/Phone';
 
 const FindId = () => {
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ const FindId = () => {
             placeholder="가입하신 이메일을 입력해주세요"
           />
           <p>전화번호</p>
-          <Phone />
+          {/* <Phone /> */}
         </div>
         <div className="confirmButton">
           <button type="submit" className="confirmBtn">

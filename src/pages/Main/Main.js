@@ -1,6 +1,7 @@
 import React from 'react';
 import { ICON_DATA } from '../../Data/mainIcon';
 import MainSwiper from './MainSwiper/MainSwiper';
+import MainBanner from './MainBanner/MainBanner';
 import './Main.scss';
 
 const Main = () => {
@@ -15,15 +16,11 @@ const Main = () => {
             </div>
           ))}
         </div>
-        <div className="bannerBox">
-          <div className="bannerL">
-            <img src="https://wisely.store/web/upload/appfiles/ZaReJam3QiELznoZeGGkMG/e97e2a12d3374f6828d3e4937f7f3bc4.jpg" />
-          </div>
-          <div className="bannerR">
-            <img src="https://wisely.store/web/upload/appfiles/ZaReJam3QiELznoZeGGkMG/c6963493bd3e31eb478cfe717e711c81.jpg" />
-          </div>
-        </div>
+        <MainBanner />
         <div />
+        <div>
+          <MainSwiper />
+        </div>
       </div>
     </div>
   );

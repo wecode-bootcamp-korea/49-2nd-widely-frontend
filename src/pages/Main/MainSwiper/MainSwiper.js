@@ -1,28 +1,135 @@
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import SwiperCore, { Navigation, A11y } from 'swiper/core';
+import React, { useState, useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import SaleBanner from '../SaleBanner/SaleBanner';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import './MainSwiper.scss';
 
-// SwiperCore.use([Navigation, A11y]);
+const MainSwiper = () => {
+  const [data, setData] = useState(null);
 
-// const MainSwiper = () => {
-//   const mySwiper = new Swiper('.swiper-container', {
-//     navigation: {
-//       prevEl: '.swiper-button-prev',
-//       nextEl: '.swiper-button-next',
-//     },
-//   });
-//   return (
-//     <Swiper
-//       className="swiper-container"
-//       spaceBetween={50}
-//       slidesPerView={3}
-//       navigation
-//       loop={true} // 무한 루프 활성화
-//       onSwiper={(swiper) => console.log(swiper)}
-//       onSlideChange={() => console.log('slide change')}
-//     >
-//       <SwiperSlide>slide1</SwiperSlide>
-//     </Swiper>
-//   );
-// };
+  useEffect(() => {
+    fetch('/data/main/main.json')
+      .then((response) => response.json())
+      .then((jsonData) => setData(jsonData.data))
+      .catch((error) => console.error('Error loading JSON:', error));
+  }, []);
 
-// export default MainSwiper;
+  return (
+    <>
+      &nbsp;
+      {data && (
+        <div className="cardList">
+          <div className="resultBox">
+            <p className="categoryName">영양제 베스트</p>
+            <Swiper
+              modules={[Navigation]}
+              className="swiperContainer"
+              spaceBetween={6}
+              slidesPerView={4}
+              navigation
+              onSlideChange={() => console.log('slide change')}
+              onSwiper={(swiper) => console.log(swiper)}
+            >
+              {data.resultOne.map(({ id, image, price, name, description }) => (
+                <SwiperSlide key={id}>
+                  <div className="mainItem" key={id}>
+                    <img className="productImg" src={`${image}`} alt={name} />
+                    <p className="productPrice">{`${price.toLocaleString(
+                      'ko-KR',
+                    )}원 `}</p>
+                    <p className="productName">{`${name}`}</p>
+                    <p className="productDesc">{`${description}`}</p>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+          <div className="resultBox">
+            <p className="categoryName">면도/구강 베스트</p>
+            <Swiper
+              modules={[Navigation]}
+              className="swiperContainer"
+              spaceBetween={6}
+              slidesPerView={4}
+              navigation
+              onSlideChange={() => console.log('slide change')}
+              onSwiper={(swiper) => console.log(swiper)}
+            >
+              {data.resultTwo.map(({ id, image, price, name, description }) => (
+                <SwiperSlide key={id}>
+                  <div className="mainItem" key={id}>
+                    <img className="productImg" src={`${image}`} alt={name} />
+                    <p className="productPrice">{`${price.toLocaleString(
+                      'ko-KR',
+                    )}원 `}</p>
+                    <p className="productName">{`${name}`}</p>
+                    <p className="productDesc">{`${description}`}</p>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+          <SaleBanner />
+          <div className="resultBox">
+            <p className="categoryName">스킨케어 베스트</p>
+            <Swiper
+              modules={[Navigation]}
+              className="swiperContainer"
+              spaceBetween={6}
+              slidesPerView={4}
+              navigation
+              onSlideChange={() => console.log('slide change')}
+              onSwiper={(swiper) => console.log(swiper)}
+            >
+              {data.resultThree.map(
+                ({ id, image, price, name, description }) => (
+                  <SwiperSlide key={id}>
+                    <div className="mainItem" key={id}>
+                      <img className="productImg" src={`${image}`} alt={name} />
+                      <p className="productPrice">{`${price.toLocaleString(
+                        'ko-KR',
+                      )}원 `}</p>
+                      <p className="productName">{`${name}`}</p>
+                      <p className="productDesc">{`${description}`}</p>
+                    </div>
+                  </SwiperSlide>
+                ),
+              )}
+            </Swiper>
+          </div>
+          <div className="resultBox">
+            <p className="categoryName">푸드 베스트</p>
+            <Swiper
+              modules={[Navigation]}
+              className="swiperContainer"
+              spaceBetween={6}
+              slidesPerView={4}
+              navigation
+              onSlideChange={() => console.log('slide change')}
+              onSwiper={(swiper) => console.log(swiper)}
+            >
+              {data.resultFour.map(
+                ({ id, image, price, name, description }) => (
+                  <SwiperSlide key={id}>
+                    <div className="mainItem" key={id}>
+                      <img className="productImg" src={`${image}`} alt={name} />
+                      <p className="productPrice">{`${price.toLocaleString(
+                        'ko-KR',
+                      )}원 `}</p>
+                      <p className="productName">{`${name}`}</p>
+                      <p className="productDesc">{`${description}`}</p>
+                    </div>
+                  </SwiperSlide>
+                ),
+              )}
+            </Swiper>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default MainSwiper;
