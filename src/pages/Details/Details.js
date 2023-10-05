@@ -9,16 +9,35 @@ const Details = () => {
   const [count, setCount] = useState(1);
   const [product, setProduct] = useState({});
   const params = useParams();
-
   const [popup, setPopup] = useState(false);
+  const productId = Number(params.productId);
 
   const basketClick = () => {
     setPopup(true);
+
+    fetch('http://10.58.52.246:8000/carts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        Authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk2NDA0MzUyfQ.ae5VRN6EjZKE6p4ENeXP8RNOSS9WulpnCiHzSKbCLRM',
+      },
+      body: JSON.stringify({
+        productId: productId,
+        count: count,
+      }),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        if (data.massage === 'Insert success') {
+          setPopup(true);
+        }
+      });
   };
 
   useEffect(() => {
-    const productId = Number(params.productId);
-
     fetch(`http://10.58.52.209:8000/products/${productId}`)
       .then((res) => {
         return res.json();

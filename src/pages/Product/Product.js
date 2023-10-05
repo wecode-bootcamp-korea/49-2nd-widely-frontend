@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import Goods from '../../components/Goods/Goods';
 import './Product.scss';
 import Pagination from '../../components/Pagination/Pagination';
