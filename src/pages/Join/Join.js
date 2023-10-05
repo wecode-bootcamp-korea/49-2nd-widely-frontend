@@ -31,39 +31,37 @@ const Join = () => {
   const navigate = useNavigate();
 
   const handleSignUp = () => {
-    // fetch('http://10.58.52.151:8000/users/signup', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     email: fieldData.email,
-    //     password: fieldData.password,
-    //     name: fieldData.name,
-    //     address1: fieldData.address.address1,
-    //     address2: fieldData.address.address2,
-    //     address3: fieldData.address.address3,
-    //     phonenumber: `010-${fieldData.phone.phone2}-${fieldData.phone.phone3}`,
-    //     birthday: `${fieldData.birth.year}/${fieldData.birth.month}/${fieldData.birth.day}`,
-    //     terms: Number(fieldData.terms),
-    //   }),
-    // })
-    //   .then((response) => {
-    //     if (response.status === 200) {
-    //       return response.json();
-    //     }
-    //     throw new Error('communication failure');
-    //   })
-    //   .then((result) => {
-    //     // console.log('!!!!!!!!!!!!!!!!', result);
-    //     console.log(result);
-    //     if (result.message === 'Registration success') {
-    //       navigate('/done');
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    fetch('http://10.58.52.78:8000/users/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: fieldData.email,
+        password: fieldData.password,
+        name: fieldData.name,
+        address1: fieldData.address.address1,
+        address2: fieldData.address.address2,
+        address3: fieldData.address.address3,
+        phonenumber: `010-${fieldData.phone.phone2}-${fieldData.phone.phone3}`,
+        birthday: `${fieldData.birth.year}/${fieldData.birth.month}/${fieldData.birth.day}`,
+        terms: Number(fieldData.terms),
+      }),
+    })
+      .then((response) => {
+        if (response.status === 201) {
+          return response.json();
+        }
+        throw new Error('communication failure');
+      })
+      .then((result) => {
+        if (result.message === 'Registration success') {
+          navigate('/done');
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   // const handleSignUp = () => {
