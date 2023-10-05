@@ -7,6 +7,7 @@ import Product from './pages/Product/Product';
 import Details from './pages/Details/Details';
 import Footer from './components/Footer/Footer';
 import Basket from './pages/Basket/Basket';
+import Payment from './pages/Payment/Payment';
 
 const Router = () => {
   return (
@@ -18,6 +19,7 @@ const Router = () => {
         <Route path="/product/:category" element={<Product />} />
         <Route path="/details/:productId" element={<Details />} />
         <Route path="/basket" element={<Basket />} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -1,0 +1,121 @@
+.paymentMain {
+  width: 100%;
+  height: 100%;
+}
+
+.paymentContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
+.paymentSection {
+  height: 100%;
+  width: 100%;
+  max-width: 970px;
+  margin: 0px auto;
+  float: none;
+  padding: 0px 16px;
+  border: 3px solid black;
+}
+
+.paymentOder {
+}
+padding: 52px 0 50px;
+text-align: center;
+font-weight: 600;
+font-size: 32px;
+line-height: 140%;
+color: var(--font-color-base);
+
+// .btwrap {
+//   width: 100%;
+//   text-align: center;
+
+//   h2 {
+//     padding: 52px 0 2px;
+//     font-weight: 600;
+//     font-size: 32px;
+//     line-height: 140%;
+//     text-align: center;
+//   }
+// }
+
+// .btlist {
+//   height: 100%;
+//   border-top: 0;
+//   border-bottom: none;
+//   font-size: 16px;
+//   color: #9a9a9a;
+//   padding: 14px 0 64px;
+
+//   display: flex;
+//   flex-direction: row;
+//   align-items: flex-start;
+//   justify-content: center;
+// }
+// .checkboxWrap {
+//   width: 100%;
+//   height: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-start;
+// }
+
+// .checkboxInner {
+//   width: calc(100% - 316px - 42px);
+//   display: flex;
+//   flex-direction: row;
+//   align-items: flex-start;
+//   border-bottom: 1px solid #1c1c1c;
+//   padding-bottom: 20px;
+
+//   .emptyCheckBox {
+//     width: 27px;
+//     height: 27px;
+//     background-size: 27px;
+//     cursor: pointer;
+//   }
+
+//   .allChoice {
+//     padding: 0px 16px 0px 8px;
+//     vertical-align: middle;
+//     color: #1c1c1c;
+//     cursor: pointer;
+//   }
+
+//   .checkboxInner > div {
+//     color: #1c1c1c;
+//   }
+
+//   div::before {
+//     content: '|';
+//     margin-right: 20px;
+//     color: #dddddd;
+//   }
+// }
+
+// .btlist .checkboxWrap > div {
+//   width: 100%;
+//   padding-bottom: 20px;
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .infoWrap {
+//   width: 100%;
+//   padding-bottom: 20px;
+//   display: flex;
+//   flex-direction: row;
+// }
+
+// p.messageWed {
+//   display: flex;
+//   width: 100%;
+//   padding: 140px 0;
+//   flex-direction: row;
+//   align-items: center;
+//   justify-content: center;
+//   color: #dddddd;
+// }
