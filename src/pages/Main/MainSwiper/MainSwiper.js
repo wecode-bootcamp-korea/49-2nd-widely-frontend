@@ -35,8 +35,8 @@ const MainSwiper = () => {
               spaceBetween={6}
               slidesPerView={4}
               navigation
-              onSlideChange={() => console.log('slide change')}
-              onSwiper={(swiper) => console.log(swiper)}
+              // onSlideChange={() => console.log('slide change')}
+              // onSwiper={(swiper) => console.log(swiper)}
             >
               {data.resultOne.map(({ id, image, price, name, description }) => (
                 <SwiperSlide key={id}>
@@ -64,8 +64,8 @@ const MainSwiper = () => {
               spaceBetween={6}
               slidesPerView={4}
               navigation
-              onSlideChange={() => console.log('slide change')}
-              onSwiper={(swiper) => console.log(swiper)}
+              // onSlideChange={() => console.log('slide change')}
+              // onSwiper={(swiper) => console.log(swiper)}
             >
               {data.resultTwo.map(({ id, image, price, name, description }) => (
                 <SwiperSlide key={id}>
@@ -94,8 +94,8 @@ const MainSwiper = () => {
               spaceBetween={6}
               slidesPerView={4}
               navigation
-              onSlideChange={() => console.log('slide change')}
-              onSwiper={(swiper) => console.log(swiper)}
+              // onSlideChange={() => console.log('slide change')}
+              // onSwiper={(swiper) => console.log(swiper)}
             >
               {data.resultThree.map(
                 ({ id, image, price, name, description }) => (
@@ -125,8 +125,8 @@ const MainSwiper = () => {
               spaceBetween={6}
               slidesPerView={4}
               navigation
-              onSlideChange={() => console.log('slide change')}
-              onSwiper={(swiper) => console.log(swiper)}
+              // onSlideChange={() => console.log('slide change')}
+              // onSwiper={(swiper) => console.log(swiper)}
             >
               {data.resultFour.map(
                 ({ id, image, price, name, description }) => (

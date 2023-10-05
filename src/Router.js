@@ -28,6 +28,7 @@ const Router = () => {
         <Route path="/products/:productId" element={<Details />} />
         <Route path="/search" element={<Search />} />
         <Route path="/basket" element={<Basket />} />
+        <Route path="/payment" element={<Payment />} />
         <Route path="/find_id" element={<FindId />} />
         <Route path="/fInd_pw" element={<FindPw />} />
         <Route path="/done" element={<JoinDone />} />
