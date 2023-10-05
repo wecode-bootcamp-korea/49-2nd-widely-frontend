@@ -10,7 +10,7 @@ import './MainSwiper.scss';
 const MainSwiper = () => {
   const navigate = useNavigate();
   const handleClick = (id) => {
-    navigate(`/details/${id}`);
+    navigate(`/products/${id}`);
   };
 
   const [data, setData] = useState(null);
@@ -18,7 +18,7 @@ const MainSwiper = () => {
   useEffect(() => {
     fetch('/data/main/main.json')
       .then((response) => response.json())
-      .then((jsonData) => setData(jsonData.data))
+      .then((result) => setData(result.data))
       .catch((error) => console.error('Error loading JSON:', error));
   }, []);
 
