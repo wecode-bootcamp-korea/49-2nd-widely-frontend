@@ -20,7 +20,8 @@ const BasketItem = (props) => {
         <img
           className="bsXimage"
           alt="이미지없음"
-          src="https://wisely.store/custom/svg/delete_black.svg?1696314054077"
+          src="../../../data/Image/delete_black.jpg"
+          // onClick={}
         />
       </div>
     </div>

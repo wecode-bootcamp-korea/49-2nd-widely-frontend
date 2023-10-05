@@ -1,9 +1,7 @@
-import React from 'react';
-import './Basket.scss';
+import React, { useState, useEffect } from 'react';
 import BasketItem from '../../components/BasketItem/BasketItem';
 import BasketPrice from '../../components/BasketPrice/BasketPrice';
-// import CheckBox from '../../components/CheckBox/CheckBox';
-import { useState, useEffect } from 'react';
+import './Basket.scss';
 
 const Basket = () => {
   const [itemList, setItemList] = useState([]);
@@ -11,16 +9,45 @@ const Basket = () => {
   const minus = (id) => {
     // 1. 어떤 item의 마이너스 버튼을 눌렀는지 알아야 함
     // 2. 그 특정 item은 itemList 안에 존재. 그 itemList 안의 item을 찾아서,
-    const item = itemList.find((item) => item.id === id);
-    // 3. 그 item의 count만 -1 해줘야 함
-    if (item.count <= 1) return;
+    const itemIndex = itemList.findIndex((item) => item.id === id);
+
+    // 3. 다른 데이터는 그대로 유지하되, 그 item의 count만 -1 해줘야 함
+    if (itemList[itemIndex].count <= 1) return;
+
+    const newItemList = [...itemList]; // 불변성, 복사(복제)
+    newItemList[itemIndex].count = newItemList[itemIndex].count - 1;
+
+    setItemList(newItemList);
   };
+
+  // const minus = (id) => {
+  //   const itemCount = itemList.find((item) => item.id === id).count;
+
+  //   if (itemCount <= 1) return;
+
+  //   fetch(`수량수정 API`, {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       productId: id,
+  //       count: itemCount - 1,
+  //     }),
+  //   }).then((res) => {
+  //     if (res.ok) {
+  //       getCartData();
+  //     }
+  //   });
+  // };
 
   const plus = (id) => {
-    const item = itemList.find((item) => item.id === id);
+    const itemIndex = itemList.findIndex((item) => item.id === id);
+
+    const newItemList = [...itemList]; // 불변성, 복사(복제)
+    newItemList[itemIndex].count = newItemList[itemIndex].count + 1;
+
+    setItemList(newItemList);
   };
 
-  useEffect(() => {
+  const getCartData = () => {
     fetch('/data/BasketList/list.json', {
       method: 'GET',
       headers: {
@@ -31,7 +58,19 @@ const Basket = () => {
       .then((data) => {
         setItemList(data);
       });
+  };
+
+  useEffect(() => {
+    getCartData();
   }, []);
+
+  let totalPrice = 0;
+
+  itemList.forEach((item) => {
+    totalPrice = totalPrice + item.price * item.count;
+  });
+
+  const deliveryFee = totalPrice >= 30000 ? 3000 : 0;
 
   return (
     <div className="cartMain">
@@ -63,7 +102,10 @@ const Basket = () => {
                   </div>
                   {/* <BasketItem /> */}
                   {/* <p className="messageWed">장바구니에 담긴 제품이 없습니다</p> */}
-                  <BasketPrice />
+                  <BasketPrice
+                    totalPrice={totalPrice}
+                    deliveryFee={deliveryFee}
+                  />
                 </div>
               </div>
             </div>
