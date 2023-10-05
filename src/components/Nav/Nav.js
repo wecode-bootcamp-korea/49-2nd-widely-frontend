@@ -67,7 +67,9 @@ const Nav = () => {
             <Link className="mainLink" to="/main">
               홈
             </Link>
-            <span>신제품</span>
+            <Link className="mainLink" to="/products?category=new">
+              신제품
+            </Link>
             <span>베스트</span>
             <span>와이들리 LAB</span>
           </div>
