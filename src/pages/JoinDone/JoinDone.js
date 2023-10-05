@@ -8,7 +8,7 @@ const JoinDone = () => {
   // 2.5초 후에 /login 페이지로 이동
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate('/main');
+      navigate('/');
     }, 2500);
 
     return () => {

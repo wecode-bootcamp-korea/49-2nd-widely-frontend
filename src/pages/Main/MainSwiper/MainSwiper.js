@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import SaleBanner from '../SaleBanner/SaleBanner';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import './MainSwiper.scss';
@@ -10,15 +9,15 @@ import './MainSwiper.scss';
 const MainSwiper = () => {
   const navigate = useNavigate();
   const handleClick = (id) => {
-    navigate(`/details/${id}`);
+    navigate(`/products/${id}`);
   };
 
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch('/data/main/main.json')
+    fetch('http://10.58.52.78:8000/products/main')
       .then((response) => response.json())
-      .then((jsonData) => setData(jsonData.data))
+      .then((result) => setData(result.data))
       .catch((error) => console.error('Error loading JSON:', error));
   }, []);
 
@@ -38,22 +37,28 @@ const MainSwiper = () => {
               // onSlideChange={() => console.log('slide change')}
               // onSwiper={(swiper) => console.log(swiper)}
             >
-              {data.resultOne.map(({ id, image, price, name, description }) => (
-                <SwiperSlide key={id}>
-                  <div
-                    className="mainItem"
-                    key={id}
-                    onClick={() => handleClick(id)}
-                  >
-                    <img className="productImg" src={`${image}`} alt={name} />
-                    <p className="productPrice">{`${price.toLocaleString(
-                      'ko-KR',
-                    )}원 `}</p>
-                    <p className="productName">{`${name}`}</p>
-                    <p className="productDesc">{`${description}`}</p>
-                  </div>
-                </SwiperSlide>
-              ))}
+              {data.result1.map(
+                ({ id, thumbnailImage, price, name, description }) => (
+                  <SwiperSlide key={id}>
+                    <div
+                      className="mainItem"
+                      key={id}
+                      onClick={() => handleClick(id)}
+                    >
+                      <img
+                        className="productImg"
+                        src={thumbnailImage}
+                        alt={name}
+                      />
+                      <p className="productPrice">{`${price.toLocaleString(
+                        'ko-KR',
+                      )}원 `}</p>
+                      <p className="productName">{name}</p>
+                      <p className="productDesc">{description}</p>
+                    </div>
+                  </SwiperSlide>
+                ),
+              )}
             </Swiper>
           </div>
           <div className="resultBox">
@@ -67,25 +72,30 @@ const MainSwiper = () => {
               // onSlideChange={() => console.log('slide change')}
               // onSwiper={(swiper) => console.log(swiper)}
             >
-              {data.resultTwo.map(({ id, image, price, name, description }) => (
-                <SwiperSlide key={id}>
-                  <div
-                    className="mainItem"
-                    key={id}
-                    onClick={() => handleClick(id)}
-                  >
-                    <img className="productImg" src={`${image}`} alt={name} />
-                    <p className="productPrice">{`${price.toLocaleString(
-                      'ko-KR',
-                    )}원 `}</p>
-                    <p className="productName">{`${name}`}</p>
-                    <p className="productDesc">{`${description}`}</p>
-                  </div>
-                </SwiperSlide>
-              ))}
+              {data.result2.map(
+                ({ id, thumbnailImage, price, name, description }) => (
+                  <SwiperSlide key={id}>
+                    <div
+                      className="mainItem"
+                      key={id}
+                      onClick={() => handleClick(id)}
+                    >
+                      <img
+                        className="productImg"
+                        src={`${thumbnailImage}`}
+                        alt={name}
+                      />
+                      <p className="productPrice">{`${price.toLocaleString(
+                        'ko-KR',
+                      )}원 `}</p>
+                      <p className="productName">{`${name}`}</p>
+                      <p className="productDesc">{`${description}`}</p>
+                    </div>
+                  </SwiperSlide>
+                ),
+              )}
             </Swiper>
           </div>
-          <SaleBanner />
           <div className="resultBox">
             <p className="categoryName">스킨케어 베스트</p>
             <Swiper
@@ -97,15 +107,19 @@ const MainSwiper = () => {
               // onSlideChange={() => console.log('slide change')}
               // onSwiper={(swiper) => console.log(swiper)}
             >
-              {data.resultThree.map(
-                ({ id, image, price, name, description }) => (
+              {data.result3.map(
+                ({ id, thumbnailImage, price, name, description }) => (
                   <SwiperSlide key={id}>
                     <div
                       className="mainItem"
                       key={id}
                       onClick={() => handleClick(id)}
                     >
-                      <img className="productImg" src={`${image}`} alt={name} />
+                      <img
+                        className="productImg"
+                        src={`${thumbnailImage}`}
+                        alt={name}
+                      />
                       <p className="productPrice">{`${price.toLocaleString(
                         'ko-KR',
                       )}원 `}</p>
@@ -128,15 +142,19 @@ const MainSwiper = () => {
               // onSlideChange={() => console.log('slide change')}
               // onSwiper={(swiper) => console.log(swiper)}
             >
-              {data.resultFour.map(
-                ({ id, image, price, name, description }) => (
+              {data.result4.map(
+                ({ id, thumbnailImage, price, name, description }) => (
                   <SwiperSlide key={id}>
                     <div
                       className="mainItem"
                       key={id}
                       onClick={() => handleClick(id)}
                     >
-                      <img className="productImg" src={`${image}`} alt={name} />
+                      <img
+                        className="productImg"
+                        src={`${thumbnailImage}`}
+                        alt={name}
+                      />
                       <p className="productPrice">{`${price.toLocaleString(
                         'ko-KR',
                       )}원 `}</p>

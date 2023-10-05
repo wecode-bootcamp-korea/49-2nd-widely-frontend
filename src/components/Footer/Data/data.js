@@ -8,21 +8,21 @@ export const FOOTER_DATA_INTRO = [
 ];
 
 export const FOOTER_DATA_INFO = [
-  { id: 1, text: '(주)와이즐리컴퍼니 사업자정보' },
+  { id: 1, text: '(주)와이들리컴퍼니 사업자정보' },
   {
     id: 2,
-    text: '서울특별시 서초구 서초대로 396, 18층 1804호(서초동, 강남빌딩) 대표자: 김동욱',
+    text: '서울특별시 강남구 테헤란로, 10층 대표자: 차승혁',
   },
   {
     id: 3,
-    text: '사업자 등록번호: 344-88-00965, 통신판매업신고번호: 2023-서울서초-0263',
+    text: '사업자 등록번호: 123-45-00000, 통신판매업신고번호: 2023-서울강남-0000',
   },
   {
     id: 4,
-    text: '개인정보보호책임자: 김윤호 yhkim@wiselycompany.com, 고객센터: 1833-9133',
+    text: '개인정보보호책임자: 김기영 kykim@widelycompany.com, 고객센터: 1833-0000',
   },
-  { id: 5, text: 'E-mail: help@wiselycompany.com' },
-  { id: 6, text: '제휴문의: gckim@wiselycompany.com' },
+  { id: 5, text: 'E-mail: help@widelycompany.com' },
+  { id: 6, text: '제휴문의: alliance@widelycompany.com' },
 ];
 
 export const FOOTER_DATA_TERMS = [

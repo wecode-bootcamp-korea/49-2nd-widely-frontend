@@ -10,7 +10,6 @@ const TermCheck = () => {
   };
 
   const result = isChecked ? 1 : 0;
-  console.log(result);
 
   return (
     <form className="termWrap" onChange={handleCheckboxChange}>
