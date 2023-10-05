@@ -34,8 +34,8 @@ const MainSwiper = () => {
               spaceBetween={6}
               slidesPerView={4}
               navigation
-              onSlideChange={() => console.log('slide change')}
-              onSwiper={(swiper) => console.log(swiper)}
+              // onSlideChange={() => console.log('slide change')}
+              // onSwiper={(swiper) => console.log(swiper)}
             >
               {data.result1.map(
                 ({ id, thumbnailImage, price, name, description }) => (
@@ -69,8 +69,8 @@ const MainSwiper = () => {
               spaceBetween={6}
               slidesPerView={4}
               navigation
-              onSlideChange={() => console.log('slide change')}
-              onSwiper={(swiper) => console.log(swiper)}
+              // onSlideChange={() => console.log('slide change')}
+              // onSwiper={(swiper) => console.log(swiper)}
             >
               {data.result2.map(
                 ({ id, thumbnailImage, price, name, description }) => (
@@ -104,8 +104,8 @@ const MainSwiper = () => {
               spaceBetween={6}
               slidesPerView={4}
               navigation
-              onSlideChange={() => console.log('slide change')}
-              onSwiper={(swiper) => console.log(swiper)}
+              // onSlideChange={() => console.log('slide change')}
+              // onSwiper={(swiper) => console.log(swiper)}
             >
               {data.result3.map(
                 ({ id, thumbnailImage, price, name, description }) => (
@@ -139,8 +139,8 @@ const MainSwiper = () => {
               spaceBetween={6}
               slidesPerView={4}
               navigation
-              onSlideChange={() => console.log('slide change')}
-              onSwiper={(swiper) => console.log(swiper)}
+              // onSlideChange={() => console.log('slide change')}
+              // onSwiper={(swiper) => console.log(swiper)}
             >
               {data.result4.map(
                 ({ id, thumbnailImage, price, name, description }) => (

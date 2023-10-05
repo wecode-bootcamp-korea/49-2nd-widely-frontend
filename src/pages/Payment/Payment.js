@@ -6,11 +6,13 @@ import './Payment.scss';
 const Payment = () => {
   return (
     <div className="paymentMain">
-      <div className="paymentContainer">
-        <div className="paymentSection">
-          <div className="btwrap">
-            <p className="paymentOder">주문서</p>
-          </div>
+      <div className="paymentSection">
+        <div className="paymentOder">주문서</div>
+        <div className="sInfo">
+          <h2>주문제품</h2>
+        </div>
+        <div className="fSection">
+          <div className="fInfo">제품을 주문합니다.</div>
         </div>
       </div>
     </div>

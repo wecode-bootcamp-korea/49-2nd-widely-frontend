@@ -5,11 +5,11 @@ import './Basket.scss';
 
 const Basket = () => {
   const [itemList, setItemList] = useState([]);
-
+  const token = localStorage.getItem('token');
   const minus = (id) => {
     // 1. 어떤 item의 마이너스 버튼을 눌렀는지 알아야 함
     // 2. 그 특정 item은 itemList 안에 존재. 그 itemList 안의 item을 찾아서,
-    const itemIndex = itemList.findIndex((item) => item.id === id);
+    const itemIndex = itemList.findIndex((item) => item.productId === id);
 
     // 3. 다른 데이터는 그대로 유지하되, 그 item의 count만 -1 해줘야 함
     if (itemList[itemIndex].count <= 1) return;
@@ -39,7 +39,7 @@ const Basket = () => {
   // };
 
   const plus = (id) => {
-    const itemIndex = itemList.findIndex((item) => item.id === id);
+    const itemIndex = itemList.findIndex((item) => item.productId === id);
 
     const newItemList = [...itemList]; // 불변성, 복사(복제)
     newItemList[itemIndex].count = newItemList[itemIndex].count + 1;
@@ -48,16 +48,31 @@ const Basket = () => {
   };
 
   const getCartData = () => {
-    fetch('/data/BasketList/list.json', {
+    fetch('http://10.58.52.78:8000/carts', {
       method: 'GET',
       headers: {
-        // Authorization: localStorage.getItem('token'),
+        'Content-Type': 'application/json;charset=utf-8',
+        Authorization: token,
       },
     })
       .then((res) => res.json())
       .then((data) => {
-        setItemList(data);
+        setItemList(data.data);
       });
+  };
+
+  const deleteCart = (id) => {
+    fetch(`http://10.58.52.78:8000/carts/select?productId=${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        Authorization: token,
+      },
+    }).then((res) => {
+      if (res.ok) {
+        getCartData();
+      }
+    });
   };
 
   useEffect(() => {
@@ -70,7 +85,7 @@ const Basket = () => {
     totalPrice = totalPrice + item.price * item.count;
   });
 
-  const deliveryFee = totalPrice >= 30000 ? 3000 : 0;
+  const deliveryFee = totalPrice >= 30000 ? 0 : 3000;
 
   return (
     <div className="cartMain">
@@ -79,37 +94,41 @@ const Basket = () => {
           <div className="btwrap">
             <h2>장바구니</h2>
           </div>
-          <div className="btlist">
-            <div className="checkboxWrap">
-              <div>
-                {/* <div className="checkboxInner">
+          {itemList.length === 0 ? (
+            <p className="messageWed">장바구니에 담긴 제품이 없습니다</p>
+          ) : (
+            <div className="btlist">
+              <div className="checkboxWrap">
+                <div>
+                  {/* <div className="checkboxInner">
                   <input className="emptyCheckBox" type="checkbox" />
                   <label className="allChoice">전체선택(0/0)</label>
                   <div>선택삭제</div>
                 </div> */}
-                <div className="infoWrap">
-                  <div className="basketContainer">
-                    {itemList.map((item) => {
-                      return (
-                        <BasketItem
-                          key={item.id}
-                          item={item}
-                          minus={minus}
-                          plus={plus}
-                        />
-                      );
-                    })}
+                  <div className="infoWrap">
+                    <div className="basketContainer">
+                      {itemList.map((item) => {
+                        return (
+                          <BasketItem
+                            key={item.productId}
+                            item={item}
+                            minus={() => minus(item.productId)}
+                            plus={() => plus(item.productId)}
+                            deleteItem={() => deleteCart(item.productId)}
+                          />
+                        );
+                      })}
+                    </div>
+                    {/* <BasketItem /> */}
+                    <BasketPrice
+                      totalPrice={totalPrice}
+                      deliveryFee={deliveryFee}
+                    />
                   </div>
-                  {/* <BasketItem /> */}
-                  {/* <p className="messageWed">장바구니에 담긴 제품이 없습니다</p> */}
-                  <BasketPrice
-                    totalPrice={totalPrice}
-                    deliveryFee={deliveryFee}
-                  />
                 </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
