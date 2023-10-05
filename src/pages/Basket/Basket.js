@@ -5,7 +5,7 @@ import './Basket.scss';
 
 const Basket = () => {
   const [itemList, setItemList] = useState([]);
-
+  const token = localStorage.getItem('token');
   const minus = (id) => {
     // 1. 어떤 item의 마이너스 버튼을 눌렀는지 알아야 함
     // 2. 그 특정 item은 itemList 안에 존재. 그 itemList 안의 item을 찾아서,
@@ -52,8 +52,7 @@ const Basket = () => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk2NDA0MzUyfQ.ae5VRN6EjZKE6p4ENeXP8RNOSS9WulpnCiHzSKbCLRM',
+        Authorization: token,
       },
     })
       .then((res) => res.json())
@@ -67,8 +66,7 @@ const Basket = () => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk2NDA0MzUyfQ.ae5VRN6EjZKE6p4ENeXP8RNOSS9WulpnCiHzSKbCLRM',
+        Authorization: token,
       },
     }).then((res) => {
       if (res.ok) {
