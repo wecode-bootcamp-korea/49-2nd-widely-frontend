@@ -15,7 +15,7 @@ const Details = () => {
   const basketClick = () => {
     setPopup(true);
 
-    fetch('http://10.58.52.246:8000/carts', {
+    fetch('http://10.58.52.64:8000/carts', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -24,7 +24,7 @@ const Details = () => {
       },
       body: JSON.stringify({
         productId: productId,
-        count: count,
+        productQty: count,
       }),
     })
       .then((res) => {
@@ -38,14 +38,14 @@ const Details = () => {
   };
 
   useEffect(() => {
-    fetch(`http://10.58.52.209:8000/products/${productId}`)
+    fetch(`http://10.58.52.78:8000/products/${productId}`)
       .then((res) => {
         return res.json();
       })
       .then((data) => {
         setProduct(data.data);
       });
-  }, [params.productId]);
+  }, [productId]);
 
   return (
     <div className="details">

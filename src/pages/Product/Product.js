@@ -29,7 +29,7 @@ const Product = () => {
   }, [sort, currentPage]);
   useEffect(() => {
     fetch(
-      `http://10.58.52.209:8000/products?category=${category}&sort=${sort}&page=${currentPage}&size=${size}`,
+      `http://10.58.52.78:8000/products?category=${category}&sort=${sort}&page=${currentPage}&size=${size}`,
     )
       .then((res) => {
         return res.json();
