@@ -1,0 +1,39 @@
+@import '../../../styles/variables.scss';
+
+.termWrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 0 36px;
+  font-size: 13px;
+  border-top: 1px solid var(--black);
+
+  .termL {
+    width: 140px;
+  }
+
+  .termR {
+    text-align: start;
+  }
+
+  .whole {
+    font-weight: 600;
+  }
+  & li {
+    display: flex;
+    align-items: center;
+    margin: 6px 8px;
+
+    & label {
+      padding-left: 3px;
+      font-size: 15px;
+      line-height: 140%;
+    }
+  }
+
+  & p {
+    margin: 0 8px 10px;
+    font-size: 12px;
+    color: var(--gray);
+  }
+}

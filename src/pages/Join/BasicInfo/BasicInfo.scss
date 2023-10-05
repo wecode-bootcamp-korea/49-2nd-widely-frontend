@@ -1,0 +1,49 @@
+@import '../../../styles/variables.scss';
+
+.inputTable {
+  width: 100%;
+  border-top: 1px solid var(--black);
+  margin-bottom: 30px;
+
+  & Input {
+    max-width: 380px;
+    height: 52px;
+  }
+
+  .tableL {
+    width: 140px;
+  }
+
+  .tableR {
+    width: auto;
+  }
+
+  & th {
+    text-align: left;
+  }
+  & td {
+    padding: 12px 0;
+  }
+  & p {
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--gray);
+  }
+
+  .phoneContainer {
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & select {
+      width: 100%;
+    }
+
+    .smallBox {
+      max-width: 112px;
+      height: 52px;
+    }
+  }
+}
