@@ -7,7 +7,7 @@ const MainIcon = () => {
   const navigate = useNavigate();
 
   const handleClick = (name) => {
-    navigate(`/product/${name}`);
+    navigate(`/products?category=${name}`);
   };
   return (
     <div className="iconBox">

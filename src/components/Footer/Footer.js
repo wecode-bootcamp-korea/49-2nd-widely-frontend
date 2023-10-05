@@ -30,12 +30,12 @@ const Footer = () => {
                 alt="카카오톡 아이콘"
               />
               &nbsp;
-              <p>카카오톡 채널 '와이즐리'</p>
+              <p>카카오톡 채널 '와이들리'</p>
             </div>
             <div className="footerCs">
-              <p className="footerCsNum">고객센터 1833-9133</p>
+              <p className="footerCsNum">고객센터 1588-8851</p>
               <div className="footerCsHours">
-                <p>[ 평일 ] 오전 9시 ~ 오후 5시 30분</p>
+                <p>[ 평일 ] 오전 10시 ~ 오후 10시</p>
                 <p>[ 점심시간 ] 오후 12시 ~ 1시</p>
               </div>
             </div>
