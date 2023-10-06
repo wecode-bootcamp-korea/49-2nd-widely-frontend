@@ -3,42 +3,32 @@ import { Link, useNavigate } from 'react-router-dom';
 import Input from '../../../components/Input/Input';
 import LoginCheck from '../LoginCheck/LoginCheck';
 import './LoginWrap.scss';
-
 const LoginWrap = () => {
   const navigate = useNavigate();
-
   const handleJoin = () => {
     navigate('/join');
   };
-
   const [userInfo, setUserInfo] = useState({
     email: '',
     password: '',
   });
-
   const { email, password } = userInfo;
-
   const typingSentry = (e) => {
     const { name, value } = e.target;
     setUserInfo({ ...userInfo, [name]: value });
   };
-
   const emailValidCheck = (email) => {
     const regExp =
       /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-
     return regExp.test(email);
   };
-
   const pwValidCheck = (password) => {
     if (password.length >= 10) {
       return true;
     }
     return false;
   };
-
   const isUserInputValid = emailValidCheck(email) && pwValidCheck(password);
-
   const submitUserInfo = (e) => {
     e.preventDefault();
     //
@@ -66,7 +56,6 @@ const LoginWrap = () => {
         }
       });
   };
-
   return (
     <form
       className="loginForm"
@@ -124,5 +113,4 @@ const LoginWrap = () => {
     </form>
   );
 };
-
 export default LoginWrap;

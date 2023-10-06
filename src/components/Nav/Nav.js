@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Dropdown from './component/Dropdown';
 import './Nav.scss';
-
 const Nav = () => {
   const [listBtn, setListBtn] = useState(false);
   const [text, setText] = useState('');
@@ -10,7 +9,6 @@ const Nav = () => {
   const saveText = (text) => {
     setText(text);
   };
-
   const search = () => {
     if (text === '') {
       return;
@@ -30,13 +28,10 @@ const Nav = () => {
   const goBasket = () => {
     navigate('/basket');
   };
-
   const Token = localStorage.getItem('token');
   console.log('Token', Token);
-
   const handleLogout = () => {
     localStorage.removeItem('token');
-
     alert('로그아웃이 완료되었습니다.');
     window.location.reload();
   };
@@ -115,5 +110,4 @@ const Nav = () => {
     </nav>
   );
 };
-
 export default Nav;

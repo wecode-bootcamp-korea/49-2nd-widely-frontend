@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import BasketItem from '../../components/BasketItem/BasketItem';
 import BasketPrice from '../../components/BasketPrice/BasketPrice';
 import './Basket.scss';
-
 const Basket = () => {
   const [itemList, setItemList] = useState([]);
   const token = localStorage.getItem('token');
@@ -10,21 +9,15 @@ const Basket = () => {
     // 1. 어떤 item의 마이너스 버튼을 눌렀는지 알아야 함
     // 2. 그 특정 item은 itemList 안에 존재. 그 itemList 안의 item을 찾아서,
     const itemIndex = itemList.findIndex((item) => item.productId === id);
-
     // 3. 다른 데이터는 그대로 유지하되, 그 item의 count만 -1 해줘야 함
     if (itemList[itemIndex].count <= 1) return;
-
     const newItemList = [...itemList]; // 불변성, 복사(복제)
     newItemList[itemIndex].count = newItemList[itemIndex].count - 1;
-
     setItemList(newItemList);
   };
-
   // const minus = (id) => {
   //   const itemCount = itemList.find((item) => item.id === id).count;
-
   //   if (itemCount <= 1) return;
-
   //   fetch(`수량수정 API`, {
   //     method: 'POST',
   //     body: JSON.stringify({
@@ -37,16 +30,12 @@ const Basket = () => {
   //     }
   //   });
   // };
-
   const plus = (id) => {
     const itemIndex = itemList.findIndex((item) => item.productId === id);
-
     const newItemList = [...itemList]; // 불변성, 복사(복제)
     newItemList[itemIndex].count = newItemList[itemIndex].count + 1;
-
     setItemList(newItemList);
   };
-
   const getCartData = () => {
     fetch('http://10.58.52.82:8000/carts', {
       method: 'GET',
@@ -60,7 +49,6 @@ const Basket = () => {
         setItemList(data.data);
       });
   };
-
   const deleteCart = (id) => {
     fetch(`http://10.58.52.82:8000/carts/select?productId=${id}`, {
       method: 'DELETE',
@@ -74,19 +62,14 @@ const Basket = () => {
       }
     });
   };
-
   useEffect(() => {
     getCartData();
   }, []);
-
   let totalPrice = 0;
-
   itemList.forEach((item) => {
     totalPrice = totalPrice + item.price * item.count;
   });
-
   const deliveryFee = totalPrice >= 20000 ? 0 : 3000;
-
   return (
     <div className="cartMain">
       <div className="container">
@@ -134,5 +117,4 @@ const Basket = () => {
     </div>
   );
 };
-
 export default Basket;
