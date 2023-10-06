@@ -87,7 +87,7 @@ const Basket = () => {
     totalPrice = totalPrice + item.price * item.count;
   });
 
-  const deliveryFee = totalPrice >= 30000 ? 0 : 3000;
+  const deliveryFee = totalPrice >= 20000 ? 0 : 3000;
 
   return (
     <div className="cartMain">
