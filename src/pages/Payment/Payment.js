@@ -24,7 +24,9 @@ const Payment = () => {
 
   // console.log
 
-  useEffect(getCartData, []);
+  useEffect(() => {
+    getCartData();
+  }, []);
 
   const {
     firstOrderName,
