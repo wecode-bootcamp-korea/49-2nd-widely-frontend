@@ -9,7 +9,6 @@ const BasketPrice = ({ totalPrice, deliveryFee }) => {
   const handleCilck = () => {
     navigate('/payment');
   };
-
   return (
     <div className="orderInfo">
       <div className="bsTotalBox">
@@ -27,7 +26,7 @@ const BasketPrice = ({ totalPrice, deliveryFee }) => {
         </div>
         <div className="bsTotal">
           <span>결제예정금액</span>
-          <span>0원</span>
+          <span>{totalPrice.toLocaleString('ko-KR')}원</span>
         </div>
       </div>
       <button className="bsChBtn" onClick={handleCilck}>

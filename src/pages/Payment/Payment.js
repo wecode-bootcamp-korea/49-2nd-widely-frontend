@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Input from '../../components/Input/Input';
 import BasketPrice from '../../components/BasketPrice/BasketPrice';
 import './Payment.scss';
-// import BasketPrice from '../../components/BasketPrice/BasketPrice';
-// import { useState } from 'react';
 
 const Payment = () => {
   const [orderData, setOrderData] = useState({});
@@ -11,14 +9,11 @@ const Payment = () => {
   const token = localStorage.getItem('token');
 
   const getCartData = () => {
-    // fetch('http://10.58.52.63:8000/orders', {
-    fetch('http://localhost:8000/orders', {
+    fetch('http://10.58.52.82:8000/orders', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        // Authorization: token,
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImlhdCI6MTY5NjU2MjQ5NX0.ZylzSP0FoTA0HjCDcX2wY1BuxL1-zrzTEcDTJeWovZI',
+        Authorization: token,
       },
     })
       .then((res) => res.json())
@@ -29,7 +24,9 @@ const Payment = () => {
 
   // console.log
 
-  useEffect(getCartData, []);
+  useEffect(() => {
+    getCartData();
+  }, []);
 
   const {
     firstOrderName,
