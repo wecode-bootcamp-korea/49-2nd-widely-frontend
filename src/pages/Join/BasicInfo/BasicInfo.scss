@@ -30,20 +30,17 @@
     color: var(--gray);
   }
 
-  .phoneContainer {
-    width: 100%;
-    max-width: 380px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  // .phoneContainer {
+  //   width: 100%;
+  //   max-width: 380px;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-between;
 
-    & select {
-      width: 100%;
-    }
-
-    .smallBox {
-      max-width: 112px;
-      height: 52px;
-    }
-  }
+  //   & select {
+  //     width: 100%;
+  //     max-width: 112px;
+  //     height: 52px;
+  //   }
+  // }
 }

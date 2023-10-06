@@ -12,11 +12,11 @@ const Birth = (props) => {
 
   return (
     <form className="birthContainer" onChange={handleInputChange}>
-      <Input type="text" className="smallBox" value={year} name="year" />
+      <Input type="text" value={year} name="year" />
       /
-      <Input type="text" className="smallBox" value={month} name="month" />
+      <Input type="text" value={month} name="month" />
       /
-      <Input type="text" className="smallBox" value={day} name="day" />
+      <Input type="text" value={day} name="day" />
     </form>
   );
 };

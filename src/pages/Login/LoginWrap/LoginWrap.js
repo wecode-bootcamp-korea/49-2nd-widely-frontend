@@ -3,48 +3,38 @@ import { Link, useNavigate } from 'react-router-dom';
 import Input from '../../../components/Input/Input';
 import LoginCheck from '../LoginCheck/LoginCheck';
 import './LoginWrap.scss';
-
 const LoginWrap = () => {
   const navigate = useNavigate();
-
   const handleJoin = () => {
     navigate('/join');
   };
-
   const [userInfo, setUserInfo] = useState({
     email: '',
     password: '',
   });
-
   const { email, password } = userInfo;
-
   const typingSentry = (e) => {
     const { name, value } = e.target;
     setUserInfo({ ...userInfo, [name]: value });
   };
-
   const emailValidCheck = (email) => {
     const regExp =
       /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-
     return regExp.test(email);
   };
-
   const pwValidCheck = (password) => {
     if (password.length >= 10) {
       return true;
     }
     return false;
   };
-
   const isUserInputValid = emailValidCheck(email) && pwValidCheck(password);
-
   const submitUserInfo = (e) => {
     e.preventDefault();
     //
     navigate('/');
     //
-    fetch('http://10.58.52.78:8000/users/login', {
+    fetch('http://10.58.52.82:8000/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -59,16 +49,13 @@ const LoginWrap = () => {
         if (result.message === 'Login success') {
           localStorage.setItem('token', result.token);
           navigate('/');
-        } else if (result.status === 400) {
-          alert('아이디, 비밀번호를 확인해주세요');
-        } else if (result.status === 400) {
-          alert('비밀번호를 확인해주세요');
+        } else if (result.status === 401) {
+          alert('아이디를 확인해주세요');
         } else {
           alert('로그인 실패');
         }
       });
   };
-
   return (
     <form
       className="loginForm"
@@ -126,5 +113,4 @@ const LoginWrap = () => {
     </form>
   );
 };
-
 export default LoginWrap;

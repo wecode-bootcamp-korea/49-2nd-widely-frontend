@@ -31,7 +31,7 @@ const Join = () => {
   const navigate = useNavigate();
 
   const handleSignUp = () => {
-    fetch('http://10.58.52.78:8000/users/signup', {
+    fetch('http://10.58.52.82:8000/users/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -101,8 +101,8 @@ const Join = () => {
           <BasicInfo fieldData={fieldData} setFieldData={setFieldData} />
           <TermCheck />
         </div>
-        <div className="joinButton">
-          <button className="joinGo" onClick={handleSignUp}>
+        <div className="confirmButtonBox">
+          <button className="confirmButton" onClick={handleSignUp}>
             가입하기
           </button>
         </div>
