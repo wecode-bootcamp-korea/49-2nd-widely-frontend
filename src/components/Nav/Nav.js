@@ -35,6 +35,7 @@ const Nav = () => {
     alert('로그아웃이 완료되었습니다.');
     window.location.reload();
   };
+
   return (
     <nav className="nav">
       <p className="event">
@@ -58,6 +59,7 @@ const Nav = () => {
                 가입/로그인
               </Link>
             )}
+
             <span>고객센터</span>
             <span>공지사항</span>
           </div>

@@ -101,8 +101,8 @@ const Join = () => {
           <BasicInfo fieldData={fieldData} setFieldData={setFieldData} />
           <TermCheck />
         </div>
-        <div className="joinButton">
-          <button className="joinGo" onClick={handleSignUp}>
+        <div className="confirmButtonBox">
+          <button className="confirmButton" onClick={handleSignUp}>
             가입하기
           </button>
         </div>

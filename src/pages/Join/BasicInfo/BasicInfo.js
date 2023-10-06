@@ -36,6 +36,7 @@ const BasicInfo = (props) => {
   const { birth, phone, address } = fieldData;
 
   const handleFieldChange = (fieldName, fieldValue) => {
+    console.log(fieldName, fieldValue);
     setFieldData((prevFieldData) => ({
       ...prevFieldData,
       [fieldName]: fieldValue,
