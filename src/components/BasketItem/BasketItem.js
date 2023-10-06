@@ -15,7 +15,11 @@ const BasketItem = (props) => {
           <span className="bsUp">{item.count}</span>
           <button onClick={plus}>+</button>
         </div>
-        <span className="bsItemPrice">{item.price * item.count}원</span>
+        <div className="a">
+          <span className="bsItemPrice">
+            {(item.price * item.count).toLocaleString('ko-KR')}원
+          </span>
+        </div>
         <img
           className="bsXimage"
           alt="삭제"

@@ -7,7 +7,7 @@ const BasketPrice = ({ totalPrice, deliveryFee }) => {
       <div className="bsTotalBox">
         <div className="bsTotalPrice">
           <span>합계</span>
-          <span>{totalPrice} 원</span>
+          <span>{totalPrice.toLocaleString('ko-KR')} 원</span>
         </div>
         <div className="bsDcPrice">
           <span>상품할인금액</span>
@@ -15,7 +15,7 @@ const BasketPrice = ({ totalPrice, deliveryFee }) => {
         </div>
         <div className="bsDeliveryPrice">
           <span>배송비</span>
-          <span>+{deliveryFee}원</span>
+          <span>+{deliveryFee.toLocaleString('ko-KR')}원</span>
         </div>
         <div className="bsTotal">
           <span>결제예정금액</span>
