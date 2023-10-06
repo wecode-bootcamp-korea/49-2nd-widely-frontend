@@ -1,3 +1,4 @@
+@import '../../../styles/variables.scss';
 .birthContainer {
   width: 100%;
   max-width: 380px;
@@ -7,10 +8,8 @@
 
   & select {
     width: 100%;
-  }
-
-  .smallBox {
     max-width: 112px;
     height: 52px;
+    border: 1px solid var(--input--gray);
   }
 }

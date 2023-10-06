@@ -23,7 +23,7 @@ const Phone = (props) => {
       -
       <Input
         type="text"
-        className="smallBox"
+        className="input"
         name="phone2"
         value={phone2}
         placeholder="0000"
@@ -31,7 +31,7 @@ const Phone = (props) => {
       -
       <Input
         type="text"
-        className="smallBox"
+        className="input"
         name="phone3"
         value={phone3}
         placeholder="0000"

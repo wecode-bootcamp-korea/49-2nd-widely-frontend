@@ -11,6 +11,7 @@ const Input = (props) => {
     onChange,
     status,
     value,
+    checked,
   } = props;
 
   return (
@@ -23,6 +24,7 @@ const Input = (props) => {
       onChange={onChange}
       status={status}
       value={value}
+      checked={checked}
     />
   );
 };
