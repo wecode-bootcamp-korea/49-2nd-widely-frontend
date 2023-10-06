@@ -44,8 +44,7 @@ const LoginWrap = () => {
     //
     navigate('/');
     //
-    fetch('http://10.58.52.94:8000/users/login', {
-
+    fetch('http://10.58.52.82:8000/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -48,7 +48,7 @@ const Basket = () => {
   };
 
   const getCartData = () => {
-    fetch('http://10.58.52.78:8000/carts', {
+    fetch('http://10.58.52.82:8000/carts', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -62,7 +62,7 @@ const Basket = () => {
   };
 
   const deleteCart = (id) => {
-    fetch(`http://10.58.52.78:8000/carts/select?productId=${id}`, {
+    fetch(`http://10.58.52.82:8000/carts/select?productId=${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

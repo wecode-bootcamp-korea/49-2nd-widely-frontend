@@ -22,7 +22,7 @@ const FindId = () => {
   const findId = (e) => {
     e.preventDefault();
     fetch(
-      `http://10.58.52.94:8000/users/find-id?name=${name}&phonenumber=${phonenumber}`,
+      `http://10.58.52.82:8000/users/find-id?name=${name}&phonenumber=${phonenumber}`,
       {
         method: 'GET',
         headers: {
