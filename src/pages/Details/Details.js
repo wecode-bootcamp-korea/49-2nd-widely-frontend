@@ -15,7 +15,7 @@ const Details = () => {
   const navigate = useNavigate();
 
   const basketClick = () => {
-    fetch('http://10.58.52.78:8000/carts', {
+    fetch('http://10.58.52.82:8000/carts', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -40,7 +40,7 @@ const Details = () => {
   };
 
   useEffect(() => {
-    fetch(`http://10.58.52.78:8000/products/${productId}`)
+    fetch(`http://10.58.52.82:8000/products/${productId}`)
       .then((res) => {
         return res.json();
       })
