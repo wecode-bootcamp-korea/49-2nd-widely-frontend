@@ -30,13 +30,20 @@
         text-align: center;
       }
 
-      .joinButton {
-        display: flex;
-        justify-content: center;
+      .confirmButtonBox {
+        margin: 0 auto;
+        font-size: 14px;
+        line-height: 140%;
 
-        .joinGo {
-          display: flex;
-          /* margin: 0 auto; */
+        .confirmButton {
+          width: 100%;
+          height: 60px;
+          border: none;
+          background-color: var(--black);
+          color: var(--white);
+          padding: 12px;
+          margin-bottom: 16px;
+          cursor: pointer;
         }
       }
     }

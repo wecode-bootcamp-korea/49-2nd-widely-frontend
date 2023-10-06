@@ -44,7 +44,8 @@ const LoginWrap = () => {
     //
     navigate('/');
     //
-    fetch('http://10.58.52.78:8000/users/login', {
+    fetch('http://10.58.52.94:8000/users/login', {
+
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -59,10 +60,8 @@ const LoginWrap = () => {
         if (result.message === 'Login success') {
           localStorage.setItem('token', result.token);
           navigate('/');
-        } else if (result.status === 400) {
-          alert('아이디, 비밀번호를 확인해주세요');
-        } else if (result.status === 400) {
-          alert('비밀번호를 확인해주세요');
+        } else if (result.status === 401) {
+          alert('아이디를 확인해주세요');
         } else {
           alert('로그인 실패');
         }
