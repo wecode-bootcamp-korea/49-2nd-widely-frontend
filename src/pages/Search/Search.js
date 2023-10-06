@@ -10,7 +10,7 @@ const Search = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const keyword = searchParams.get('keyword');
-    fetch(`http://10.58.52.78:8000/search?keyword=${keyword}`)
+    fetch(`http://10.58.52.82:8000/search?keyword=${keyword}`)
       .then((res) => {
         return res.json();
       })

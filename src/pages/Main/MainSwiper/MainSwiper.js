@@ -15,7 +15,7 @@ const MainSwiper = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch('http://10.58.52.78:8000/products/main')
+    fetch('http://10.58.52.82:8000/products/main')
       .then((response) => response.json())
       .then((result) => setData(result.data))
       .catch((error) => console.error('Error loading JSON:', error));

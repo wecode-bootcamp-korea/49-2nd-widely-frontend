@@ -17,7 +17,7 @@ const FindPw = () => {
       return;
     }
 
-    fetch('http://10.58.52.94:8000/users/find-pw', {
+    fetch('http://10.58.52.82:8000/users/find-pw', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
