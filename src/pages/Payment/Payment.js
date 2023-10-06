@@ -1,10 +1,46 @@
-import React from 'react';
-import './Payment.scss';
+import React, { useState, useEffect } from 'react';
 import Input from '../../components/Input/Input';
+import BasketPrice from '../../components/BasketPrice/BasketPrice';
+import './Payment.scss';
 // import BasketPrice from '../../components/BasketPrice/BasketPrice';
 // import { useState } from 'react';
 
 const Payment = () => {
+  const [orderData, setOrderData] = useState({});
+
+  const token = localStorage.getItem('token');
+
+  const getCartData = () => {
+    // fetch('http://10.58.52.63:8000/orders', {
+    fetch('http://localhost:8000/orders', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        // Authorization: token,
+        authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImlhdCI6MTY5NjU2MjQ5NX0.ZylzSP0FoTA0HjCDcX2wY1BuxL1-zrzTEcDTJeWovZI',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setOrderData(data.data);
+      });
+  };
+
+  // console.log
+
+  useEffect(getCartData, []);
+
+  const {
+    firstOrderName,
+    totalQuantity,
+    name,
+    zipcode,
+    address1,
+    address2,
+    point,
+  } = orderData;
+
   return (
     <div className="paymentMain">
       <div className="paymentSection">
@@ -14,7 +50,9 @@ const Payment = () => {
             <h2>주문제품</h2>
           </div>
           <div className="fSection">
-            <div className="fInfo">제품을 주문합니다.</div>
+            <div className="fInfo">
+              {firstOrderName} 외 {totalQuantity - 1}개 상품
+            </div>
           </div>
         </div>
         <div className="">
@@ -36,7 +74,7 @@ const Payment = () => {
                   </p>
                 </p>
                 <p className="lastP">
-                  <Input className="orderName" />
+                  <Input className="orderName" value={name} />
                 </p>
               </div>
               <div className="addressName">
@@ -101,10 +139,10 @@ const Payment = () => {
                   alt="필수입력이미지"
                 />
               </p>
-              <Input className="writeM" />
+              <Input className="writeM" value={name} />
             </div>
             <div className="addressMap">
-              <Input className="mapSe" />
+              <Input className="mapSe" value={zipcode} />
               <button>주소검색</button>
             </div>
             <div className="addressPoint">
@@ -115,11 +153,11 @@ const Payment = () => {
                   alt="필수입력이미지"
                 />
               </p>
-              <Input className="addPoint" />
+              <Input className="addPoint" value={address1} />
             </div>
             <div className="addPointOne">
               <p />
-              <Input className="addPointTwo" />
+              <Input className="addPointTwo" value={address2} />
             </div>
             <div className="addressPhone">
               <p>
@@ -158,11 +196,12 @@ const Payment = () => {
               <Input className="chPoint" />
               <button className="pointRoding">전액사용</button>
             </div>
-            <div className="priceNumber">보유 잔액 0원</div>
+            <div className="priceNumber">보유 잔액 {point}원</div>
           </div>
           <div className="lastButton">
             <button className="paymentsButton">0원</button>
           </div>
+          {/* <BasketPrice /> */}
         </div>
       </div>
     </div>
