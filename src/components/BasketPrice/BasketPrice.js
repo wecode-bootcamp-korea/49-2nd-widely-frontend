@@ -1,25 +1,12 @@
 import React from 'react';
 import './BasketPrice.scss';
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const BasketPrice = ({ totalPrice, deliveryFee }) => {
-  const [OrderInfo, setOrderInfo] = useState({});
-
-  const fetchOrderInfo = () => {
-    const userData = {
-      data: {
-        addressName: '',
-        recipientName: '',
-        phoneNumber: '',
-        zipcode: '',
-        address1: '',
-        address2: '',
-      },
-    };
-
-    setOrderInfo(userData);
+  const navigate = useNavigate();
+  const handleclick = () => {
+    navigate('/payment');
   };
-
   return (
     <div className="orderInfo">
       <div className="bsTotalBox">
@@ -37,10 +24,10 @@ const BasketPrice = ({ totalPrice, deliveryFee }) => {
         </div>
         <div className="bsTotal">
           <span>결제예정금액</span>
-          <span>0원</span>
+          <span>{totalPrice.toLocaleString('ko-KR')}원</span>
         </div>
       </div>
-      <button className="bsChBtn" onClick={fetchOrderInfo}>
+      <button className="bsChBtn" onClick={handleclick}>
         구매하기
       </button>
       <span className="couponAlram">
