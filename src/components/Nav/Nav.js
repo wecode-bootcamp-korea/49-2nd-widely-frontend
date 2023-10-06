@@ -27,6 +27,9 @@ const Nav = () => {
       search();
     }
   };
+  const goBasket = () => {
+    navigate('/basket');
+  };
 
   const Token = localStorage.getItem('token');
   console.log('Token', Token);
@@ -103,7 +106,9 @@ const Nav = () => {
               </div>
             </div>
             <i className="fa-regular fa-heart" />
-            <i className="fa-solid fa-bag-shopping" />
+            <div onClick={goBasket} className="basket">
+              <i className="fa-solid fa-bag-shopping" />
+            </div>
           </div>
         </div>
       </div>

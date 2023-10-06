@@ -1,27 +1,30 @@
 import React from 'react';
-// import { useEffect, useState } from 'react';
 import './BasketItem.scss';
 
 const BasketItem = (props) => {
-  const { item, minus, plus } = props;
+  const { item, minus, plus, deleteItem } = props;
 
   return (
     <div className="itemLine">
       {/* <input className="IndividualCheckBox" type="checkbox" /> */}
-      <img className="bsItemImage" alt="사진없음" src={item.src} />
+      <img className="bsItemImage" alt={item.product_name} src={item.image} />
       <div className="beItemWrap">
-        <span className="bsItemTitle">{item.title}</span>
+        <span className="bsItemTitle">{item.product_name}</span>
         <div className="bsCountBox">
-          <button onClick={() => minus(item.id)}>-</button>
+          <button onClick={minus}>-</button>
           <span className="bsUp">{item.count}</span>
-          <button onClick={() => plus(item.id)}>+</button>
+          <button onClick={plus}>+</button>
         </div>
-        <span className="bsItemPrice">{item.price * item.count}원</span>
+        <div className="a">
+          <span className="bsItemPrice">
+            {(item.price * item.count).toLocaleString('ko-KR')}원
+          </span>
+        </div>
         <img
           className="bsXimage"
-          alt="이미지없음"
+          alt="삭제"
           src="../../../data/Image/delete_black.jpg"
-          // onClick={}
+          onClick={deleteItem}
         />
       </div>
     </div>
