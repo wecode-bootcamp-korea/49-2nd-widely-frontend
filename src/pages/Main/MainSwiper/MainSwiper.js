@@ -5,6 +5,7 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import './MainSwiper.scss';
+import { _getMain } from '../../../api';
 
 const MainSwiper = () => {
   const navigate = useNavigate();
@@ -15,9 +16,12 @@ const MainSwiper = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch('http://10.58.52.82:8000/products/main')
-      .then((response) => response.json())
-      .then((result) => setData(result.data))
+    // fetch('http://10.58.52.82:8000/products/main')
+    //   .then((response) => response.json())
+    _getMain()
+      .then((result) => {
+        setData(result.data);
+      })
       .catch((error) => console.error('Error loading JSON:', error));
   }, []);
 

@@ -18,7 +18,7 @@ export const ICON_DATA = [
     imageSrc:
       'https://wisely.store/web/upload/appfiles/ZaReJam3QiELznoZeGGkMG/c9043f2b4c9676e61b056c4a391ec45b.png',
     title: '영양제',
-    name: 'nutrients',
+    name: 'nutrient',
   },
   {
     id: 7,

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import BasketItem from '../../components/BasketItem/BasketItem';
 import BasketPrice from '../../components/BasketPrice/BasketPrice';
 import './Basket.scss';
+import { _getBasketList, _deleteBasket } from '../../api';
 const Basket = () => {
   const [itemList, setItemList] = useState([]);
   const token = localStorage.getItem('token');
@@ -37,30 +38,37 @@ const Basket = () => {
     setItemList(newItemList);
   };
   const getCartData = () => {
-    fetch('http://10.58.52.82:8000/carts', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-        Authorization: token,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setItemList(data.data);
-      });
+    // fetch('http://10.58.52.82:8000/carts', {
+    //   method: 'GET',
+    //   headers: {
+    //     'Content-Type': 'application/json;charset=utf-8',
+    //     Authorization: token,
+    //   },
+    // })
+    //   .then((res) => res.json())
+    _getBasketList().then((data) => {
+      setItemList(data.data);
+    });
   };
   const deleteCart = (id) => {
-    fetch(`http://10.58.52.82:8000/carts/select?productId=${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-        Authorization: token,
-      },
-    }).then((res) => {
-      if (res.ok) {
+    // fetch(`http://10.58.52.82:8000/carts/select?productId=${id}`, {
+    //   method: 'DELETE',
+    //   headers: {
+    //     'Content-Type': 'application/json;charset=utf-8',
+    //     Authorization: token,
+    //   },
+    // }).then((res) => {
+    //   if (res.ok) {
+    //     getCartData();
+    //   }
+    // });
+    _deleteBasket(token, id).then((data) => {
+      if (data.message === 'Delete success') {
         getCartData();
       }
     });
+    const newItemList = itemList.filter((item) => item.productId !== id);
+    setItemList(newItemList);
   };
   useEffect(() => {
     getCartData();

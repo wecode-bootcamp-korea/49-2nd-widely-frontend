@@ -4,6 +4,7 @@ import Count from '../../components/Count/Count';
 import Delivery from '../../components/Delivery/Delivery';
 import { useNavigate, useParams } from 'react-router-dom';
 import Popup from '../../components/Popup/Popup';
+import { _addBasket, _getDetail } from '../../api';
 
 const Details = () => {
   const [count, setCount] = useState(1);
@@ -15,38 +16,34 @@ const Details = () => {
   const navigate = useNavigate();
 
   const basketClick = () => {
-    fetch('http://10.58.52.82:8000/carts', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-        Authorization: token,
-      },
-      body: JSON.stringify({
-        productId: productId,
-        productQty: count,
-      }),
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data.message === 'Insert success') {
-          setPopup(true);
-        } else {
-          alert('회원가입후 이용해주세요.');
-          navigate('/join');
-        }
-      });
+    // fetch('http://10.58.52.82:8000/carts', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json;charset=utf-8',
+    //     Authorization: token,
+    //   },
+    //   body: JSON.stringify({
+    //     productId: productId,
+    //     productQty: count,
+    //   }),
+    // })
+    //   .then((res) => {
+    //     return res.json();
+    //   })
+    _addBasket(token, productId, count).then((data) => {
+      if (data.message === 'Insert success') {
+        setPopup(true);
+      } else {
+        alert('회원가입후 이용해주세요.');
+        navigate('/join');
+      }
+    });
   };
 
   useEffect(() => {
-    fetch(`http://10.58.52.82:8000/products/${productId}`)
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setProduct(data.data);
-      });
+    _getDetail(productId).then((data) => {
+      setProduct(data.data);
+    });
   }, [productId]);
 
   return (
