@@ -9,17 +9,17 @@ const Payment = () => {
   const token = localStorage.getItem('token');
 
   const getCartData = () => {
-    fetch('http://10.58.52.82:8000/orders', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-        Authorization: token,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setOrderData(data.data);
-      });
+    // fetch('http://10.58.52.82:8000/orders', {
+    //   method: 'GET',
+    //   headers: {
+    //     'Content-Type': 'application/json;charset=utf-8',
+    //     Authorization: token,
+    //   },
+    // })
+    //   .then((res) => res.json()) d여긴족ㅁ있다 해줄게
+    //   .then((data) => {
+    //     setOrderData(data.data);
+    //   });
   };
 
   // console.log

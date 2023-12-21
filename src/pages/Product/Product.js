@@ -4,6 +4,8 @@ import Goods from '../../components/Goods/Goods';
 import './Product.scss';
 import Pagination from '../../components/Pagination/Pagination';
 
+import { _getProductList } from '../../api';
+
 const size = 6;
 const pageLimit = 5;
 
@@ -28,17 +30,19 @@ const Product = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [sort, currentPage]);
   useEffect(() => {
-    fetch(
+    /**
+     * fetch(
       `http://10.58.52.82:8000/products?category=${category}&sort=${sort}&page=${currentPage}&size=${size}`,
     )
       .then((res) => {
         return res.json();
       })
-      .then((result) => {
-        const totalPage = Math.ceil(result.data.total / size);
-        setTotalPage(totalPage);
-        setData(result.data);
-      });
+     */
+    _getProductList(category, sort, currentPage, size).then((result) => {
+      const totalPage = Math.ceil(result.data.total / size);
+      setTotalPage(totalPage);
+      setData(result.data);
+    });
   }, [searchParams, sort, currentPage, category]);
   if (!Object.keys(data).length > 0) return null;
 

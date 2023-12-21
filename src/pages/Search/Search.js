@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import './Search.scss';
+import { _searchProduct } from '../../api';
 
 const Search = () => {
   const [keyword, setKeyword] = useState('');
@@ -10,13 +11,13 @@ const Search = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const keyword = searchParams.get('keyword');
-    fetch(`http://10.58.52.82:8000/search?keyword=${keyword}`)
-      .then((res) => {
-        return res.json();
-      })
-      .then((result) => {
-        setDataList(result.data);
-      });
+    // fetch(`http://10.58.52.82:8000/search?keyword=${keyword}`)
+    //   .then((res) => {
+    //     return res.json();
+    //   })
+    _searchProduct(keyword).then((result) => {
+      setDataList(result.data);
+    });
     setKeyword(keyword);
   }, [searchParams]);
 

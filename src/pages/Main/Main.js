@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MainIcon from './MainIcon/MainIcon';
 import MainSwiper from './MainSwiper/MainSwiper';
 import './Main.scss';

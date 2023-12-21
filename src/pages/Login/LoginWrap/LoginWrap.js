@@ -3,14 +3,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import Input from '../../../components/Input/Input';
 import LoginCheck from '../LoginCheck/LoginCheck';
 import './LoginWrap.scss';
+import { _login } from '../../../api';
 const LoginWrap = () => {
   const navigate = useNavigate();
   const handleJoin = () => {
     navigate('/join');
   };
   const [userInfo, setUserInfo] = useState({
-    email: '',
-    password: '',
+    email: 'test@test.com',
+    password: 'thisistestpassword',
   });
   const { email, password } = userInfo;
   const typingSentry = (e) => {
@@ -34,27 +35,27 @@ const LoginWrap = () => {
     //
     navigate('/');
     //
-    fetch('http://10.58.52.82:8000/users/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        if (result.message === 'Login success') {
-          localStorage.setItem('token', result.token);
-          navigate('/');
-        } else if (result.status === 401) {
-          alert('아이디를 확인해주세요');
-        } else {
-          alert('로그인 실패');
-        }
-      });
+    // fetch('http://10.58.52.82:8000/users/login', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({
+    //     email: email,
+    //     password: password,
+    //   }),
+    // })
+    //   .then((res) => res.json())
+    _login(email, password).then((result) => {
+      if (result.message === 'Login success') {
+        localStorage.setItem('token', result.token);
+        navigate('/');
+      } else if (result.status === 401) {
+        alert('아이디를 확인해주세요');
+      } else {
+        alert('로그인 실패');
+      }
+    });
   };
   return (
     <form
@@ -69,12 +70,14 @@ const LoginWrap = () => {
             id="email"
             type="email"
             name="email"
+            value={email}
             placeholder="이메일을 입력해주세요"
           />
           <Input
             id="password"
             type="password"
             name="password"
+            value={password}
             placeholder="비밀번호를 입력해주세요"
           />
         </div>
