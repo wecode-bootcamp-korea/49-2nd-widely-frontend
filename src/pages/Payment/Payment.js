@@ -16,7 +16,7 @@ const Payment = () => {
     //     Authorization: token,
     //   },
     // })
-    //   .then((res) => res.json()) d여긴족ㅁ있다 해줄게
+    //   .then((res) => res.json())
     //   .then((data) => {
     //     setOrderData(data.data);
     //   });
