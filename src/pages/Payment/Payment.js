@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Input from '../../components/Input/Input';
-import BasketPrice from '../../components/BasketPrice/BasketPrice';
+// import BasketPrice from '../../components/BasketPrice/BasketPrice';
 import './Payment.scss';
 
 const Payment = () => {
