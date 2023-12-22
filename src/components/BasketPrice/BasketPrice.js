@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 const BasketPrice = ({ totalPrice, deliveryFee }) => {
   const navigate = useNavigate();
-  navigate('/payment');
   const handleCilck = () => {
     navigate('/payment');
   };

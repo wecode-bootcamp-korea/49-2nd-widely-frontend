@@ -6,9 +6,9 @@ import './LoginWrap.scss';
 import { _login } from '../../../api';
 const LoginWrap = () => {
   const navigate = useNavigate();
-  const handleJoin = () => {
-    navigate('/join');
-  };
+  // const handleJoin = () => {
+  //   navigate('/join');
+  // };회원가입 비활성화
   const [userInfo, setUserInfo] = useState({
     email: 'test@test.com',
     password: 'thisistestpassword',
@@ -90,24 +90,18 @@ const LoginWrap = () => {
           >
             로그인
           </button>
-          <button type="button" className="joinBtn" onClick={handleJoin}>
-            회원가입
+          <button type="button" className="joinBtn">
+            회원가입ㅇ
           </button>
-          <p className="kakaoLink">
-            <a href="https://kauth.kakao.com/oauth/authorize?client_id=1c6e9e460200c4390eabf0875a047bed&redirect_uri=http://localhost:8000/users/kakao/login&response_type=code">
-              <img src="https://wisely.store/SkinImg/img/icon_kakao.svg" />
-              &nbsp; 카톡으로 쉽게 시작하기
-            </a>
-          </p>
         </div>
         <ul className="searchId">
           <li>
-            <Link to="/find_id" className="linkText">
+            <Link to="/#" className="linkText">
               이메일 찾기
             </Link>
           </li>
           <li>
-            <Link to="/find_pw" className="linkText">
+            <Link to="/#" className="linkText">
               비밀번호 찾기
             </Link>
           </li>

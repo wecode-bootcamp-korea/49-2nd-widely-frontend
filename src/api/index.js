@@ -86,7 +86,7 @@ export const _getMain = async () => {
     const response = await fetch(`/data/product/${category}.json`);
     const data = await response.json();
 
-    result[category] = data.list;
+    result[category] = data.list.slice(0, 4);
   }
   return new Promise((resolve, reject) => {
     resolve({
