@@ -24,12 +24,6 @@ const Footer = () => {
           </div>
           <div className="footerArea2Right">
             <div className="footerKakao">
-              <img
-                src="https://www.wisely.store/SkinImg/img/icon_kakaotalk_fff.svg"
-                className="kakaoImg"
-                alt="카카오톡 아이콘"
-              />
-              &nbsp;
               <p>카카오톡 채널 '와이들리'</p>
             </div>
             <div className="footerCs">
